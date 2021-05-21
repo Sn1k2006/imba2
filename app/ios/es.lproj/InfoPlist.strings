@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  app
+
+  Created by Ivan Polosin on 5/5/20.
+  Copyright © 2020 Facebook. All rights reserved.
+*/
+"NSCameraUsageDescription" =  "Esto es necesario para que pueda compartir sus fotos y videos.";
+"NSPhotoLibraryUsageDescription" = "La aplicación solicita acceso a la cámara para crear una foto de perfil.";

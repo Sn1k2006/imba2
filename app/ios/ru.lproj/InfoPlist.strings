@@ -1,0 +1,9 @@
+/* 
+  InfoPlist.strings
+  app
+
+  Created by Ivan Polosin on 5/5/20.
+  Copyright © 2020 Facebook. All rights reserved.
+*/
+"NSCameraUsageDescription" =  "Приложение запрашивает доступ к камере для создания фото профиля";
+"NSPhotoLibraryUsageDescription" = "Приложение запрашивает доступ к библиотеке устройства для создания фото профиля";

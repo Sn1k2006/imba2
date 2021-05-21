@@ -1,0 +1,356 @@
+
+
+
+@font-face {
+  font-family: 'Poppins-Regular';
+  src: url('../../assets/fonts/Poppins-Regular.eot');
+  src: url('../../assets/fonts/Poppins-Regular.eot?#iefix') format('embedded-opentype'),
+  url('../../assets/fonts/Poppins-Regular.woff') format('woff'),
+  url('../../assets/fonts/Poppins-Regular.ttf') format('truetype'),
+  url('../../assets/fonts/Poppins-Regular.svg#webfont') format('svg');
+}
+
+@font-face {
+  font-family: 'Poppins-Black';
+  src: url('../../assets/fonts/Poppins-Black.eot');
+  src: url('../../assets/fonts/Poppins-Black.eot?#iefix') format('embedded-opentype'),
+  url('../../assets/fonts/Poppins-Black.woff') format('woff'),
+  url('../../assets/fonts/Poppins-Black.ttf') format('truetype'),
+  url('../../assets/fonts/Poppins-Black.svg#webfont') format('svg');
+}
+@font-face {
+  font-family: 'Poppins-SemiBold';
+  src: url('../../assets/fonts/Poppins-SemiBold.eot');
+  src: url('../../assets/fonts/Poppins-SemiBold.eot?#iefix') format('embedded-opentype'),
+  url('../../assets/fonts/Poppins-SemiBold.woff') format('woff'),
+  url('../../assets/fonts/Poppins-SemiBold.ttf') format('truetype'),
+  url('../../assets/fonts/Poppins-SemiBold.svg#webfont') format('svg');
+}
+
+html{
+  width: 100%;
+}
+body {
+  position: relative;
+  background-color: #F3F8FF;
+  font-size: 14px;
+  margin: 0;
+  padding: 0;
+  font-family: "Poppins-Regular", sans-serif;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+a {
+  transition: all .3s ease;
+  outline: none;
+  text-decoration: underline;
+  margin: 0;
+  padding: 0;
+  color: #01CB65;
+}
+a:hover {
+  border-radius: 80px;
+  /*background: rgba(255, 255, 255, 0.16);*/
+  text-decoration: none;
+}
+a:active {
+  text-decoration: none;
+  opacity: 0.9;
+}
+
+.app_bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  background-color: #181B20;
+
+}
+.app_bg:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+  opacity: 0.2;
+  background: url("../../assets/images/games.png") center / cover;
+  background-size: 180%;
+}
+
+.app_bg-no_bg:after {
+  display: none;
+}
+
+.app_bg-x2-wrap {
+  opacity: 1;
+  position: absolute;
+  left: -300px;
+  bottom: -300px;
+}
+
+.app_bg-x1-wrap {
+  opacity: 0.6;
+  position: absolute;
+  right: 0;
+  left: 50%;
+  width: 110%;
+  min-height: 1100px;
+  height: calc(100vh + 200px);
+  /*overflow: hidden;*/
+  transform: skewX(23deg);
+  background-color: #272A2F;
+  top: -100px;
+}
+
+.app_bg-no_bg .app_bg-x2-wrap {
+  opacity: 0.1;
+}
+
+.app_bg-no_bg .app_bg-x1 {
+  opacity: 1;
+}
+
+.app_bg-x1 {
+  position: absolute;
+  left: -200px;
+  bottom: -100px;
+  transform: skewX(-23deg);
+}
+
+.app_bg-x1-top {
+  display: none;
+  opacity: 0.4;
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 400px;
+  width: 400px;
+  background: linear-gradient(135deg, #FC2A52 0%, transparent 50%, #181B20 80%, #181B20 100%);
+  z-index: -2;
+}
+
+.app_bg-x1-top_r {
+  opacity: 0.4;
+  display: none;
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: -2;
+  height: 400px;
+  width: 200px;
+  background: linear-gradient(246deg, #7459FF 0%, transparent 50%, #181B20 80%, #181B20 100%);
+}
+
+.app_bg-x1:after {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  background: linear-gradient(35deg, transparent 0%, transparent 30%, #181B20 75%, #181B20 100%);
+}
+
+.app_bg-x1-overflow:after {
+  background: linear-gradient(45deg, transparent 0%, transparent 40%, #272A2F 70%, #272A2F 100%);
+}
+
+.app_bg-overflow .app_bg-x1-wrap {
+  opacity: 0.4;
+  overflow: hidden;
+  background-color: #181B20;
+}
+
+.app_bg-overflow .app_bg-x1-top, .app_bg-overflow .app_bg-x1-top_r {
+  display: block;
+}
+
+.app_bg-left {
+  display: none;
+  opacity: 1;
+  position: absolute;
+  right: 0;
+  left: calc(-50% + 43px);
+  width: 100%;
+  min-height: 1100px;
+  height: calc(100vh + 200px);
+  /* overflow: hidden; */
+  -webkit-transform: skewX(23deg);
+  transform: skewX(23deg);
+  background-color: rgba(24, 27, 32, 0.64);;
+  top: 0;
+}
+
+.app_bg-overflow .app_bg-left {
+  display: block;
+}
+
+.app_bg-blur {
+  filter: blur(10px);
+}
+
+.wrapper {
+  position: relative;
+  padding-bottom: 60px;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  min-height: 100vh;
+  /*height: 100%;*/
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow-x: hidden;
+  /*background: right 5% bottom 45% /1200px no-repeat url("../images/phone.png") ;*/
+}
+
+.shop_buttons {
+  margin: 0 -12px;
+  padding-top: 64px;
+}
+.shop_buttons a {
+  display: inline-block;
+  margin: 12px;
+}
+.shop_buttons img {
+  border-radius: 5px;
+  width: 222px;
+  height: auto;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 60px;
+  justify-content: center;
+  display: flex;
+  align-items: center;
+}
+.footer a {
+  padding: 2px 12px;
+  text-decoration: none;
+  color: #fff;
+  display: inline-block;
+  margin: 0 20px;
+}
+.footer span {
+  cursor: default;
+  color: #01CB65;
+}
+.footer a:hover {
+  background: rgba(255, 255, 255, 0.16);
+}
+.home_page {
+  position: relative;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 49px;
+}
+
+.header {
+  margin: 0;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding-bottom: 24px;
+}
+.header:after {
+  content: '';
+  position: absolute;
+  bottom: 41px;
+  width: 180px;
+  height: 1px;
+  background-color: rgba(255, 255, 255, 0.5);
+}
+.header h1 {
+  padding-right: 24px;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 120px;
+  font-family: 'Poppins-Black', sans-serif;
+  color: #565d77;
+}
+.home_text {
+  font-size: 20px;
+  line-height: 28px;
+  /* or 140% */
+  max-width: 100%;
+  text-align: center;
+  color: #FFFFFF;
+  width: 529px;
+}
+.header span {
+  color: #00D9CD;
+}
+.home_img {
+  position: absolute;
+  width: 1000px;
+  z-index: -1;
+  left: 35%;
+  top: 0px;
+  height: 500px;
+}
+.home_img img {
+  object-fit: contain;
+  width: 100%;
+
+  /*height: 100%;*/
+}
+
+.docs_wrap {
+  padding-top: 28px;
+  text-align: left;
+}
+.docs_wrap h2 {
+  font-family: 'Poppins-SemiBold' ,sans-serif;
+  margin: 0;
+  padding-bottom: 24px;
+  text-align: center;
+  font-size: 24px;
+  line-height: 36px;
+  color: #01CB65;
+}
+
+.docs_content h4 {
+  font-size: 18px;
+}
+
+.docs_content ul {
+  padding: 0 20px;
+}
+.header_docs {
+  padding: 24px 16px;
+}
+.header_docs a {
+  text-decoration: none;
+  display: inline-block;
+  color: #01CB65;
+  font-weight: 700;
+  font-size: 17px;
+  margin: 0;
+  line-height: 26px;
+  font-family: 'Poppins-Black', sans-serif;
+}
+.docs_content a:hover {
+  background: transparent;
+}
+.header_docs span {
+  color: #01CB65;
+}
+
+.home_page-logo img {
+  width: 381px;
+}
+.docs-logo {
+  width: 90px;
+  height: 90px
+}

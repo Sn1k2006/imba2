@@ -1,0 +1,15 @@
+/* 
+  InfoPlist.strings
+  app
+
+  Created by Ivan Polosin on 5/5/20.
+  Copyright © 2020 Facebook. All rights reserved.
+*/
+"This is required so that you can share your photos and videos
+This is required so that you can share your photos and videos" = 
+  <key>NSCameraUsageDescription</key>
+  <string>This is required so that you can share your photos and videos
+This is required so that you can share your photos and videos
+</string>
+<key>NSPhotoLibraryUsageDescription</key>
+<string>This is required so that you can share photos and videos from your device's library</string>
