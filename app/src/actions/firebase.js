@@ -1,5 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import {analytics, messaging} from 'react-native-firebase';
+import {analytics, messaging, notifications} from 'react-native-firebase';
 import {AppEventsLogger} from 'react-native-fbsdk';
 import ReactNativeAppsFlyer from 'react-native-appsflyer';
 import {YandexMetrica} from 'react-native-appmetrica-yandex';
@@ -7,29 +7,24 @@ import notifee from '@notifee/react-native';
 
 
 export const firebaseInitialization = async () => {
-  try {
-    let fcm;
-    await notifee.requestPermission();
-    const authorizationStatus = await messaging().requestPermission(
-        {provisional: true,}
-    );
-    if (authorizationStatus) {
-      fcm = (await messaging().getToken()) || '';
-      await AsyncStorage.setItem('fcm', fcm);
-    }
-    return fcm;
-  } catch (e) {
-  }
-};
+  let fcm;
+  await notifee.requestPermission();
+
+
+  fcm = (await messaging().getToken()) || '';
+  await AsyncStorage.setItem('fcm', fcm);
+  return fcm;
+}
 
 
 export const initNotification = async (handleClick) => {
   const enabled = await messaging().hasPermission();
   if (enabled) {
-    messaging().getInitialNotification().then(handleClick);
-    messaging().onNotificationOpenedApp(handleClick);
-    messaging().onMessage(notificationLog);
-    messaging().setBackgroundMessageHandler(notificationLog);
+    notifications().onNotificationOpened(handleClick);
+    // messaging().getInitialNotification().then(handleClick);
+    // messaging().onNotificationOpened(handleClick);
+    // messaging().onMessage(notificationLog);
+    // messaging().setBackgroundMessageHandler(notificationLog);
   } else {
     setTimeout(() => messaging().requestPermission().then(() => initNotification(handleClick)), 30000);
   }
@@ -48,8 +43,8 @@ export const notificationLog = async () => {
     }
     if (tasks.AppsFlyer) {
       await ReactNativeAppsFlyer.logEvent(
-          tasks.AppsFlyer.name,
-          tasks.AppsFlyer.params,
+        tasks.AppsFlyer.name,
+        tasks.AppsFlyer.params,
       );
     }
 
@@ -63,8 +58,8 @@ export const notificationLog = async () => {
           break;
         default:
           await analytics().logEvent(
-              tasks.Firebase.name,
-              tasks.Firebase.params || {},
+            tasks.Firebase.name,
+            tasks.Firebase.params || {},
           );
       }
     }

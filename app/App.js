@@ -4,7 +4,7 @@ import {
   View,
   StatusBar, StyleSheet,
   Dimensions,
-  AppState
+  AppState, Platform
 } from 'react-native';
 import {Root} from 'native-base';
 import RNExitApp from 'react-native-exit-app';
@@ -23,7 +23,7 @@ import {toJS} from "mobx";
 import {goggleInit} from "./src/actions/google";
 import {returnEntryEvent} from "./src/utils";
 import {initTracking} from './src/actions/tracking';
-
+import NavigationBar from 'react-native-navbar-color'
 
 const stores = {
   appStore: AppStore,
@@ -60,6 +60,7 @@ class App extends Component {
 
   async componentDidMount() {
     AppState.addEventListener('change', this._handleAppStateChange);
+
     Orientation.lockToPortrait();
     Dimensions.addEventListener("change", Layout._orientationDidChange);
     this.connection = NetInfo.addEventListener(async state => {
@@ -75,6 +76,7 @@ class App extends Component {
           );
         }
       }
+
       AppStore.connection = state.isConnected;
     });
   }
@@ -84,12 +86,16 @@ class App extends Component {
     await goggleInit();
     await AppStore.init();
     StatusBar.setHidden(false, true);
+    if(Platform.OS === 'android') {
+      StatusBar.setBackgroundColor(Colors.bg);
+      NavigationBar.setColor(Colors.second_bg)
+    }
     SplashScreen.hide();
+
     await initTracking();
   };
 
   notificationClick = (remoteMessage) => {
-    console.log(111)
     if (remoteMessage?.data?.data) {
 
     }
