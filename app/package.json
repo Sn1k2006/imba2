@@ -7,7 +7,8 @@
     "ios": "react-native run-ios",
     "start": "react-native start",
     "test": "jest",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "icon": "ts-node icons.ts"
   },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.8.3",
@@ -23,6 +24,7 @@
     "@react-navigation/drawer": "^5.3.1",
     "@react-navigation/native": "^5.1.0",
     "@react-navigation/stack": "^5.2.1",
+    "jimp": "^0.16.1",
     "mobx": "^5.15.4",
     "mobx-react": "^6.1.8",
     "moment": "^2.24.0",

@@ -1,51 +1,34 @@
 {
   "project_info": {
-    "project_number": "880300529994",
-    "firebase_url": "https://imba-esports.firebaseio.com",
-    "project_id": "imba-esports",
-    "storage_bucket": "imba-esports.appspot.com"
+    "project_number": "155437666676",
+    "project_id": "esports-masters",
+    "storage_bucket": "esports-masters.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:880300529994:android:f327193f97e4dfb5bd49b3",
+        "mobilesdk_app_id": "1:155437666676:android:c07b4d71628a41d37f5c21",
         "android_client_info": {
-          "package_name": "com.adcourses.imba"
+          "package_name": "rr.esports.masters"
         }
       },
       "oauth_client": [
         {
-          "client_id": "880300529994-batotd0vsme2c3s6k5v2neq60uja3rjt.apps.googleusercontent.com",
-          "client_type": 1,
-          "android_info": {
-            "package_name": "com.adcourses.imba",
-            "certificate_hash": "f398e00af48df08dc0731167414b2f09e46f3761"
-          }
-        },
-        {
-          "client_id": "880300529994-7shblcl9b484i81j6qhefedfi7l5tm6t.apps.googleusercontent.com",
+          "client_id": "155437666676-839rq963v86oc60p21ctm8nk1kngo5g5.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBMTuWbUc5KKtY6sJI1ncg4u_m8Kf-SAuE"
+          "current_key": "AIzaSyD8U7yGVoyqGk70-jpTYLX1tzWs0WmuRgs"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "880300529994-7shblcl9b484i81j6qhefedfi7l5tm6t.apps.googleusercontent.com",
+              "client_id": "155437666676-839rq963v86oc60p21ctm8nk1kngo5g5.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "880300529994-gma9kb1q02fq0i6gbdmmqlfftg8m5hq1.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.adcourses.imba",
-                "app_store_id": "1521215213"
-              }
             }
           ]
         }

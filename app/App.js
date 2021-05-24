@@ -85,7 +85,7 @@ class App extends Component {
     SplashScreen.hide();
     await initTracking();
     const fcm = await firebaseInitialization(); //Настройка пушей
-    await this.props.userStore.updateUser({fcm});
+    await UserStore.updateUser({fcm});
   };
 
   notifications = async () => {
