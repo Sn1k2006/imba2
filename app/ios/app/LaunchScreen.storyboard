@@ -22,7 +22,7 @@
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="iv9-KL-lpE"/>
-                        <color key="backgroundColor" red="0.027450980392156862" green="0.054901960784313725" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.082352941176470587" green="0.17254901960784313" blue="0.29019607843137252" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <color key="tintColor" systemColor="placeholderTextColor"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tgt-yk-815" secondAttribute="trailing" constant="80" id="7bI-kA-7xQ"/>
@@ -38,7 +38,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Image" width="341.33334350585938" height="341.33334350585938"/>
+        <image name="Image" width="512" height="512"/>
         <systemColor name="placeholderTextColor">
             <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.29999999999999999" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>

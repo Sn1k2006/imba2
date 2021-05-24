@@ -35,6 +35,8 @@
 		59A4EF7F449046CC8ECB63B8 /* Feather.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2E2B4379768A459F93BE5A91 /* Feather.ttf */; };
 		5FF93A6681784B51BFEBB008 /* Entypo.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F3B84CBC9E4A450EBFBE41D5 /* Entypo.ttf */; };
 		7B60560A9E6143D080F6A193 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6D0346981DE4EACB02AD57F /* EvilIcons.ttf */; };
+		8D2E3FA5265BA8E50084EE70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2E3FA3265BA8E50084EE70 /* LaunchScreen.storyboard */; };
+		8D2E3FA6265BA8E50084EE70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2E3FA3265BA8E50084EE70 /* LaunchScreen.storyboard */; };
 		8DB5C3682657D0CB003343B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DB5C3672657D0CB003343B1 /* GoogleService-Info.plist */; };
 		8DB5C3692657D0CB003343B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DB5C3672657D0CB003343B1 /* GoogleService-Info.plist */; };
 		9A462CF681A0459BBABC518D /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC52AD88C9154F619B7C4CDF /* Fontisto.ttf */; };
@@ -113,6 +115,7 @@
 		7B123E7742604992A9B3E23E /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		80CC1E2BD35BB56C316094AE /* Pods-app-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-app-tvOSTests/Pods-app-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B8BCF5C3D6097AD0014C400 /* libPods-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D2E3FA3265BA8E50084EE70 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = app/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8DB5C3672657D0CB003343B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "app/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95513048C74E378D8C3877C0 /* Pods-app-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-app-tvOSTests/Pods-app-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		A72BBA2872FC44B1A0203C33 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -188,6 +191,7 @@
 		13B07FAE1A68108700A75B9A /* app */ = {
 			isa = PBXGroup;
 			children = (
+				8D2E3FA3265BA8E50084EE70 /* LaunchScreen.storyboard */,
 				8DB5C3672657D0CB003343B1 /* GoogleService-Info.plist */,
 				555511D524291F4200E4E043 /* Yourse.entitlements */,
 				008F07F21AC5B25A0029DE68 /* main.jsbundle */,
@@ -477,6 +481,7 @@
 				5FF93A6681784B51BFEBB008 /* Entypo.ttf in Resources */,
 				7B60560A9E6143D080F6A193 /* EvilIcons.ttf in Resources */,
 				59A4EF7F449046CC8ECB63B8 /* Feather.ttf in Resources */,
+				8D2E3FA5265BA8E50084EE70 /* LaunchScreen.storyboard in Resources */,
 				BB1573BE72544589AB82B2F9 /* FontAwesome.ttf in Resources */,
 				2D9298883D774A168246EDB6 /* FontAwesome5_Brands.ttf in Resources */,
 				F06F68BE76E84FFC9E1A8550 /* FontAwesome5_Regular.ttf in Resources */,
@@ -500,6 +505,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D2E3FA6265BA8E50084EE70 /* LaunchScreen.storyboard in Resources */,
 				2D02E4BD1E0B4A84006451C7 /* Images.xcassets in Resources */,
 				8DB5C3692657D0CB003343B1 /* GoogleService-Info.plist in Resources */,
 			);
