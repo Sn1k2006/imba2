@@ -1,6 +1,5 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import messaging from '@react-native-firebase/messaging';
-import analytics from '@react-native-firebase/analytics';
+import {analytics, messaging} from 'react-native-firebase';
 import {AppEventsLogger} from 'react-native-fbsdk';
 import ReactNativeAppsFlyer from 'react-native-appsflyer';
 import {YandexMetrica} from 'react-native-appmetrica-yandex';
