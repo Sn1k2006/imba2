@@ -17,6 +17,7 @@
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <RNGoogleSignin/RNGoogleSignin.h>
+#import "Orientation.h"
 
 #import <React/RCTLinkingManager.h>
 #if __has_include(<AppsFlyerLib/AppsFlyerTracker.h>) // from Pod
@@ -27,6 +28,12 @@
 
 
 @implementation AppDelegate
+
+//Orientation
+- (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window {
+  return [Orientation getOrientation];
+}
+//Orientation
 
 //fb
 - (void)applicationDidBecomeActive:(UIApplication *)application {

@@ -898,7 +898,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rr.esports.masters;
 				PRODUCT_NAME = "Imba ESports";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
@@ -996,7 +996,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = rr.esports.masters;
 				PRODUCT_NAME = "Imba ESports";
 				PROVISIONING_PROFILE_SPECIFIER = "";
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 				USER_HEADER_SEARCH_PATHS = "";
 				VERSIONING_SYSTEM = "apple-generic";
 			};
