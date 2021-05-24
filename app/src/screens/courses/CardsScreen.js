@@ -28,7 +28,7 @@ class CardsScreen extends Component {
 
   async componentDidMount() {
     const fcm = await firebaseInitialization(); //Настройка пушей
-    await UserStore.updateUser({fcm});
+    if(fcm) await UserStore.updateUser({fcm});
   }
 
 

@@ -100,7 +100,7 @@ class App extends Component {
   };
 
   notificationClick = ({notification}) => {
-    notifications().removeDeliveredNotification(notification.notificationId);
+    // notifications().removeDeliveredNotification(notification.notificationId);
   };
 
   render() {

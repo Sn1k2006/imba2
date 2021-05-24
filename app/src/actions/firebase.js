@@ -6,7 +6,7 @@ import {Platform} from "react-native";
 
 export const firebaseInitialization = async () => {
   const fcm = await messaging().getToken() || null;
-  console.log(fcm)
+  console.log('FCM:   ',fcm)
   await AsyncStorage.setItem('fcm', fcm);
   return fcm;
 };
