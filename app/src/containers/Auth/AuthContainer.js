@@ -52,7 +52,7 @@ const AuthContainer = inject("userStore", 'appStore')(observer(({navigation, use
     navigation.navigate('Recovery')
   };
   const landLink = (type) => () => {
-    const url = `https://lp.imbaesports.app/${type}`;
+    const url = `https://esports-masters.flycricket.io/${type}.html`;
     Linking.canOpenURL(url).then(supported => {
       if (supported) {
         Linking.openURL(url);
@@ -105,7 +105,7 @@ const AuthContainer = inject("userStore", 'appStore')(observer(({navigation, use
         ?
         <Text style={styles.land_links}>
           <Text style={[Styles.text_muted, styles.land_text]}>{translate('POLICY_AND_TERMS_1')} </Text>
-          <TouchableWithoutFeedback onPress={landLink('policy')}>
+          <TouchableWithoutFeedback onPress={landLink('privacy')}>
             <Text style={[Styles.text_muted, styles.land_link]}>{translate('POLICY_AND_TERMS_2')}</Text>
           </TouchableWithoutFeedback>
           <Text style={[Styles.text_muted, styles.land_text]}> {translate('POLICY_AND_TERMS_3')} </Text>

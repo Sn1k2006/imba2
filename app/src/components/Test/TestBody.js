@@ -7,6 +7,7 @@ import {addHostToPath, getImageMaxSize, translate} from "../../utils";
 import ShadowView from "react-native-simple-shadow-view";
 import Colors from "../../constants/Colors";
 import LinearGradient from "react-native-linear-gradient";
+import FastImage from "react-native-fast-image";
 
 const alphabet = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
@@ -53,7 +54,7 @@ const TestBody = ({question, setAnswer, scrollTop, multi}) => {
           <Text style={[Styles.title_20, {paddingBottom: 24, flex: 0}]}>{item.text}</Text>
           :
           <ShadowView style={[Styles.shadow, styles.shadow]}>
-            <Image source={{uri: addHostToPath(item.image)}}
+            <FastImage source={{uri: addHostToPath(item.image)}}
                    style={[styles.image, getImageMaxSize(item.image?.image_width || item.image?.image_wth, item.image?.image_height, 320)]}/>
           </ShadowView>
         }

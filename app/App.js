@@ -88,7 +88,7 @@ class App extends Component {
   notifications = async () => {
     const enabled = await messaging().hasPermission();
     if (enabled) {
-      const channel = new notifications.Android.Channel('main_channel', 'imba-esports', notifications.Android.Importance.Max).setDescription('');
+      const channel = new notifications.Android.Channel('main_channel', 'ESports-Masters', notifications.Android.Importance.Max).setDescription('');
       await notifications().android.createChannel(channel);
       const notificationOpen = await notifications().getInitialNotification();
       if(notificationOpen) this.notificationClick(notificationOpen);

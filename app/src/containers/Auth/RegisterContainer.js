@@ -65,7 +65,7 @@ const RegisterContainer = inject("userStore")(observer(({userStore, loading, soc
   };
 
   const landLink = (type) => () => {
-    const url = `https://lp.imbaesports.app/${type}`;
+    const url = `https://esports-masters.flycricket.io/${type}.html`;
     Linking.canOpenURL(url).then(supported => {
       if (supported) {
         Linking.openURL(url);
@@ -146,7 +146,7 @@ const RegisterContainer = inject("userStore")(observer(({userStore, loading, soc
               <Text style={[Styles.text_muted, styles.land_link]}>{translate('REGISTER_TEXT_2')}</Text>
             </TouchableWithoutFeedback>
             <Text style={[Styles.text_muted, styles.land_text]}> {translate('REGISTER_TEXT_3')} </Text>
-            <TouchableWithoutFeedback onPress={landLink('policy')}>
+            <TouchableWithoutFeedback onPress={landLink('privacy')}>
               <Text style={[Styles.text_muted, styles.land_link]}>{translate('REGISTER_TEXT_4')}</Text>
             </TouchableWithoutFeedback>
           </Text>

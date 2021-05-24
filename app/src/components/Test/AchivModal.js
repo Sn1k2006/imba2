@@ -7,6 +7,7 @@ import Styles from "../../constants/Styles";
 import {addHostToPath} from "../../utils";
 import ShadowView from "react-native-simple-shadow-view/src/ShadowView";
 import {translate} from "../../utils/index";
+import FastImage from "react-native-fast-image";
 
 const AchivModal = ({achievements, closeAchiv, mark}) => {
   if(!mark || !achievements) return null;
@@ -14,7 +15,7 @@ const AchivModal = ({achievements, closeAchiv, mark}) => {
     return (
       <View style={styles.container}>
         <ShadowView style={[Styles.shadow, styles.shadow]}>
-          <Image source={{uri: addHostToPath(achive.image)}} style={styles.image}/>
+          <FastImage source={{uri: addHostToPath(achive.image)}} style={styles.image}/>
         </ShadowView>
         <Text  style={[Styles.title_20, styles.text]}>{achive.name}</Text>
         <Text  style={[Styles.text_muted, styles.text_descr]}>{achive.description}</Text>

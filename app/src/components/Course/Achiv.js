@@ -1,9 +1,7 @@
 import React from 'react';
-import {StyleSheet, Image, View} from 'react-native';
-import {separateAchiveInTest} from "../../actions/achievements";
+import {StyleSheet, View} from 'react-native';
 import {addHostToPath} from "../../utils";
-import ShadowView from "react-native-simple-shadow-view/src/ShadowView";
-import Styles from "../../constants/Styles";
+import FastImage from "react-native-fast-image";
 import Icons from "../Icons";
 
 const Achiv = ({achiv}) => {
@@ -11,7 +9,7 @@ const Achiv = ({achiv}) => {
       <View style={[  styles.container]}>
         {achiv
         ?
-          <Image source={{uri: addHostToPath(achiv?.image)}} style={styles.image}/>
+          <FastImage source={{uri: addHostToPath(achiv?.image)}} style={styles.image}/>
         :
           Icons.medal(32, '#ffffff')
         }

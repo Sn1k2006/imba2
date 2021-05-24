@@ -11,6 +11,7 @@ import {FBLogout} from "../../actions/facebook";
 import {signOutGoogle} from "../../actions/google";
 import BgGradient from "../../components/BgGradient";
 import logo from '../../assets/images/logo.png';
+import FastImage from "react-native-fast-image";
 
 @inject('appStore', 'userStore')
 @observer
@@ -39,7 +40,7 @@ class HomeAuthScreen extends Component {
           <View style={styles.content}>
             <View>
               {/*<Logo stub={Icons.app_stub(32, 'red')} bgc='#F8D7A5' image={require('../../assets/images/111.jpg')}/>*/}
-              <Image source={logo} style={styles.logo}/>
+              <FastImage source={logo} style={styles.logo}/>
 
             </View>
 

@@ -24,6 +24,7 @@ import x_gr_5 from '../../assets/images/x/x_gr_5.png'
 
 import Fonts from "../../constants/Fonts";
 import Colors from "../../constants/Colors";
+import FastImage from "react-native-fast-image";
 
 const ITEM_BG = '#0d2b2d';
 const ITEM_GRAD_1 = '#173655';
@@ -106,20 +107,21 @@ class CardsSwiperItem extends Component {
             {course.bg_img
               ?
               <Animated.View style={[styles.image, {transform: [{translateY: interpolatedImage}]}]}>
-                <Image
-                  source={{uri: addHostToPath(course.bg_img)}}
-                  style={[getImageMaxSize(course.bg_img.image_width, course.bg_img.image_height, 200)]}
+                <FastImage
+                    source={{uri: addHostToPath(course.bg_img)}}
+                    style={[getImageMaxSize(course.bg_img.image_width, course.bg_img.image_height, 200)]}
+                    resizeMode={FastImage.resizeMode.contain}
                 />
                 <LinearGradient style={styles.image_hide} colors={['#0d2b2d00', '#0d2b2d90', '#0d2b2d']}
-                                start={{x: 0.0, y: 0.6}} end={{x: 0, y: 1}}/>
+                                start={{x: 0.0, y: 0.6}} end={{x: 0, y: 1}} />
               </Animated.View>
               : null
             }
             {this.image
               ?
               <View style={styles.x_wrap}>
-                <Image source={this.image[0]} style={styles.x_b}/>
-                <Image source={this.image[1]} style={styles.x_gr}/>
+                <FastImage source={this.image[0]} style={styles.x_b}/>
+                <FastImage source={this.image[1]} style={styles.x_gr}/>
               </View>
               :
               null

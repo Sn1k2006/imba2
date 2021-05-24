@@ -7,6 +7,7 @@ import CardLogo from "../CardLogo";
 import {addHostToPath, translate} from "../../utils";
 import Icons from "../Icons";
 import Colors from "../../constants/Colors";
+import FastImage from "react-native-fast-image";
 
 const ProfileAchieveListItem = ({data, openModal, course}) => {
   const imageUri = useMemo(() => {
@@ -27,7 +28,7 @@ const ProfileAchieveListItem = ({data, openModal, course}) => {
             <View style={[styles.achieve_wrap, imageUri ? {backgroundColor: '#ffffff00'} : {}]}>
             {imageUri
               ?
-              <Image source={{uri: imageUri}} style={styles.achieve}/>
+              <FastImage source={{uri: imageUri}} style={styles.achieve}/>
               :
               Icons.medal(32, '#ffffff')
             }

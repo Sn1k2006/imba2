@@ -12,6 +12,7 @@ import Colors from "../constants/Colors";
 import Fonts from "../constants/Fonts";
 import {getStarFromPlace} from "../actions/achievements";
 import {translate} from "../utils/index";
+import FastImage from "react-native-fast-image";
 
 const AchieveModal = ({visible, closeModal, data, btn_text, stars = null, test}) => {
   if (!data) return null;
@@ -31,7 +32,7 @@ const AchieveModal = ({visible, closeModal, data, btn_text, stars = null, test})
           ?
           <ShadowView style={[Styles.shadow, styles.shadow]}>
             <View style={styles.image_wrap}>
-              <Image source={{uri: addHostToPath(data.image)}} style={styles.image}/>
+              <FastImage source={{uri: addHostToPath(data.image)}} style={styles.image}/>
             </View>
           </ShadowView>
           :

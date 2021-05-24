@@ -21,6 +21,7 @@ import {AnimatedCircularProgress} from "react-native-circular-progress";
 import Colors from "../../constants/Colors";
 import Fonts from "../../constants/Fonts";
 import Icons from "../Icons";
+import FastImage from "react-native-fast-image";
 
 const ITEM_BG = '#0d2b2d';
 const ITEM_GRAD_1 = '#173655';
@@ -60,7 +61,7 @@ class CourseHead extends Component {
           {data?.parent?.bg_img
             ?
             <View style={[styles.image]}>
-              <Image
+              <FastImage
                 source={{uri: addHostToPath(data?.parent?.bg_img)}}
                 style={[getImageMaxSize(data?.parent?.bg_img?.image_width, data?.parent?.bg_img?.image_height, 250)]}
               />
@@ -80,8 +81,8 @@ class CourseHead extends Component {
             {this.image
               ?
               <View style={styles.x_wrap}>
-                <Image source={this.image[0]} style={styles.x_b}/>
-                <Image source={this.image[1]} style={styles.x_gr}/>
+                <FastImage source={this.image[0]} style={styles.x_b}/>
+                <FastImage source={this.image[1]} style={styles.x_gr}/>
               </View>
               :
               null

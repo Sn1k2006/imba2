@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {StyleSheet, Image, Animated} from 'react-native';
 import {View} from 'native-base';
 import confetti from '../assets/images/confetti3.png';
+import FastImage from "react-native-fast-image";
 
 class RepeatImage extends Component {
   animate = new Animated.Value(0);
@@ -60,7 +61,7 @@ class RepeatImage extends Component {
           {rotate: interpolated_2},
           ]
       }]} onLayout={this.setWidth}>
-        <Image style={[{width: small ? 550 : 789, height: small ? 240 : 800}]}
+        <FastImage style={[{width: small ? 550 : 789, height: small ? 240 : 800}]}
                source={confetti}/>
       </Animated.View>
         </>

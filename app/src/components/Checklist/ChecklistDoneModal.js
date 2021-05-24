@@ -6,11 +6,12 @@ import CustomBtn from "../elements/CustomBtn";
 import ShadowView from "react-native-simple-shadow-view/src/ShadowView";
 import Icons from "../Icons";
 import confetti3 from '../../assets/images/confetti3.png';
+import FastImage from "react-native-fast-image";
 
 const ChecklistDoneModal = ({text, handleOk}) => {
   return (
       <View style={styles.container}>
-        <Image source={confetti3} style={styles.image}/>
+        <FastImage source={confetti3} style={styles.image}/>
         <ShadowView style={[Styles.shadow, styles.shadow]}>
           {Icons.check_color()}
         </ShadowView>

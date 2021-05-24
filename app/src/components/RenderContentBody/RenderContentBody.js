@@ -14,6 +14,7 @@ import Colors from "../../constants/Colors";
 import Icons from "../Icons";
 import MyYoutube from "../MyVideo/MyYoutube";
 import NewsCoursesList from "../News/NewsCoursesList";
+import FastImage from "react-native-fast-image";
 
 const config = {
   WebViewComponent: WebView,
@@ -147,7 +148,7 @@ const RenderContentBody = ({content = [], courses, footer, navigation, style = {
                     ?
                     <View style={styles.item_image}>
                       <View style={styles.load_img}><Text style={Styles.text_muted}>{translate('LOADING_IMAGE')}</Text></View>
-                      <Image
+                      <FastImage
                         source={{uri: addHostToPath(content.image)}}
                         style={[styles.image, getImageSize(content.image)]}/>
                     </View>

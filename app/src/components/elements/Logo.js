@@ -3,6 +3,7 @@ import {StyleSheet, Image} from "react-native";
 import {View} from 'native-base';
 import Fonts from "../../constants/Fonts";
 import {getImageMaxSize} from '../../utils';
+import FastImage from "react-native-fast-image";
 
 const Logo = ({
                 stub = '',
@@ -20,7 +21,7 @@ const Logo = ({
     ]}>
       {image
         ?
-        <Image source={image} style={[styles.image, getImageMaxSize(size, size, size)]}/>
+        <FastImage source={image} style={[styles.image, getImageMaxSize(size, size, size)]}/>
         :
         stub
       }
