@@ -8,11 +8,13 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint .",
-    "icon": "ts-node icons.ts"
+    "icon": "ts-node icons.ts",
+    "build:ios": "react-native bundle --entry-file='index.ios.js' --bundle-output='./ios/app/main.jsbundle' --dev=false --platform='ios' --assets-dest='./ios'"
   },
   "dependencies": {
     "@babel/plugin-proposal-optional-chaining": "^7.8.3",
     "@invertase/react-native-apple-authentication": "^1.1.2",
+    "@notifee/react-native": "^1.7.0",
     "@react-native-community/art": "^1.2.0",
     "@react-native-community/async-storage": "^1.8.1",
     "@react-native-community/datetimepicker": "^2.2.3",
@@ -20,6 +22,9 @@
     "@react-native-community/masked-view": "^0.1.7",
     "@react-native-community/netinfo": "^4.4.0",
     "@react-native-community/viewpager": "^3.3.0",
+    "@react-native-firebase/analytics": "^12.0.0",
+    "@react-native-firebase/app": "^12.0.0",
+    "@react-native-firebase/messaging": "^12.0.0",
     "@react-navigation/core": "^3.7.0",
     "@react-navigation/drawer": "^5.3.1",
     "@react-navigation/native": "^5.1.0",
@@ -43,7 +48,6 @@
     "react-native-fast-image": "^8.1.5",
     "react-native-fbsdk": "^1.1.2",
     "react-native-fetch-blob": "^0.10.8",
-    "react-native-firebase": "^5.6.0",
     "react-native-gesture-handler": "^1.6.0",
     "react-native-iap": "^4.4.2",
     "react-native-image-crop-picker": "^0.28.0",

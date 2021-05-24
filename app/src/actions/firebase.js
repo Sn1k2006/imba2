@@ -1,38 +1,77 @@
 import AsyncStorage from '@react-native-community/async-storage';
-import {messaging, notifications} from "react-native-firebase";
-import {api} from "../utils";
-import {getBundleId} from "react-native-device-info";
-import {Platform} from "react-native";
+import messaging from '@react-native-firebase/messaging';
+import analytics from '@react-native-firebase/analytics';
+import {AppEventsLogger} from 'react-native-fbsdk';
+import ReactNativeAppsFlyer from 'react-native-appsflyer';
+import {YandexMetrica} from 'react-native-appmetrica-yandex';
+import notifee from '@notifee/react-native';
+
 
 export const firebaseInitialization = async () => {
-  const fcm = await messaging().getToken() || null;
-  console.log('FCM:   ',fcm)
-  await AsyncStorage.setItem('fcm', fcm);
-  return fcm;
-};
-
-export const notification = async (message) => {
-  console.log(message);
-  if(message?.data?.type) check();
-  if(message?.data?.notification) {
-    const notification = new notifications.Notification();
-    notification
-      .setTitle(message.data.title)
-      .setBody(message.data.body)
-      .setData(message.data)
-      //.setSound('default')
-      .android.setVibrate([300])
-      .android.setChannelId('main_channel')
-      .android.setSmallIcon('@mipmap/ic_notification');
-    if(message.data.image) notification.android.setBigPicture(message.data.image);
-    if(message.data.icon) notification.android.setLargeIcon(message.data.icon);
-    await notifications().displayNotification(notification);
-    return notification;
+  try {
+    let fcm;
+    await notifee.requestPermission();
+    const authorizationStatus = await messaging().requestPermission(
+        {provisional: true,}
+    );
+    if (authorizationStatus) {
+      fcm = (await messaging().getToken()) || '';
+      await AsyncStorage.setItem('fcm', fcm);
+    }
+    return fcm;
+  } catch (e) {
   }
 };
 
-const check = async () => {
-  const bundle_id = getBundleId();
-  const platform = Platform.OS;
-  await api('/users/active', {bundle_id, platform}, 'POST');
+
+export const initNotification = async (handleClick) => {
+  const enabled = await messaging().hasPermission();
+  if (enabled) {
+    messaging().getInitialNotification().then(handleClick);
+    messaging().onNotificationOpenedApp(handleClick);
+    messaging().onMessage(notificationLog);
+    messaging().setBackgroundMessageHandler(notificationLog);
+  } else {
+    setTimeout(() => messaging().requestPermission().then(() => initNotification(handleClick)), 30000);
+  }
+}
+
+export async function logEvent(name = '', params = {}) {
+  await analytics().logEvent(name, params);
+}
+
+export const notificationLog = async () => {
+  const data = message.data;
+  if (data?.tasks) {
+    const tasks = JSON.parse(data.tasks);
+    if (tasks.Facebook) {
+      AppEventsLogger.logEvent(tasks.Facebook.name, tasks.Facebook.params);
+    }
+    if (tasks.AppsFlyer) {
+      await ReactNativeAppsFlyer.logEvent(
+          tasks.AppsFlyer.name,
+          tasks.AppsFlyer.params,
+      );
+    }
+
+    if (tasks.Firebase) {
+      switch (tasks.Firebase.name) {
+        case 'in_app_purchase':
+          await analytics().logPurchase(tasks.Firebase.params || {});
+          break;
+        case 'sign_up':
+          await analytics().logSignUp(tasks.Firebase.params || {});
+          break;
+        default:
+          await analytics().logEvent(
+              tasks.Firebase.name,
+              tasks.Firebase.params || {},
+          );
+      }
+    }
+
+    if (tasks.AppMetrica) {
+      YandexMetrica.reportEvent(tasks.AppMetrica.name, tasks.AppMetrica.params);
+    }
+  }
 };

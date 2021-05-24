@@ -17,12 +17,11 @@ import Colors from "./src/constants/Colors";
 import Layout from "./src/constants/Layout";
 import Orientation from 'react-native-orientation-locker';
 import SplashScreen from 'react-native-splash-screen'
-import {notification} from "./src/actions/firebase";
+import {initNotification} from "./src/actions/firebase";
 import NoInternet from "./src/components/NoInternet";
 import {toJS} from "mobx";
 import {goggleInit} from "./src/actions/google";
 import {returnEntryEvent} from "./src/utils";
-import {messaging, notifications} from "react-native-firebase";
 import {initTracking} from './src/actions/tracking';
 
 
@@ -33,6 +32,9 @@ const stores = {
 
 @observer
 class App extends Component {
+  notificationOpenedListener;
+  onMessageListener;
+  onBackgroundMessageListener;
   started = false;
 
   state = {
@@ -45,6 +47,7 @@ class App extends Component {
     this.connection();
     AppStore.clearPing();
     this.onMessageListener && this.onMessageListener();
+    this.onBackgroundMessageListener && this.onBackgroundMessageListener();
     this.notificationOpenedListener && this.notificationOpenedListener();
   }
 
@@ -64,6 +67,7 @@ class App extends Component {
         this.started = true;
         if (state.isConnected) {
           await this.init();
+          await initNotification(this.notificationClick);
         } else {
           Alert.alert('Нет подключения к интернету', 'Попробуйте перезагрузить приложение',
             [{text: 'Exit', onPress: () => RNExitApp.exitApp()}],
@@ -73,7 +77,6 @@ class App extends Component {
       }
       AppStore.connection = state.isConnected;
     });
-    await this.notifications();
   }
 
   init = async () => {
@@ -85,22 +88,11 @@ class App extends Component {
     await initTracking();
   };
 
-  notifications = async () => {
-    const enabled = await messaging().hasPermission();
-    if (enabled) {
-      const channel = new notifications.Android.Channel('main_channel', 'ESports-Masters', notifications.Android.Importance.Max).setDescription('');
-      await notifications().android.createChannel(channel);
-      const notificationOpen = await notifications().getInitialNotification();
-      if(notificationOpen) this.notificationClick(notificationOpen);
-      this.notificationOpenedListener = notifications().onNotificationOpened(this.notificationClick);
-      this.onMessageListener = messaging().onMessage(notification);
-    } else {
-      messaging().requestPermission().then(() => this.notifications());
-    }
-  };
+  notificationClick = (remoteMessage) => {
+    console.log(111)
+    if (remoteMessage?.data?.data) {
 
-  notificationClick = ({notification}) => {
-    // notifications().removeDeliveredNotification(notification.notificationId);
+    }
   };
 
   render() {

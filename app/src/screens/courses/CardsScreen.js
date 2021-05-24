@@ -31,7 +31,6 @@ class CardsScreen extends Component {
     if(fcm) await UserStore.updateUser({fcm});
   }
 
-
   didFocus = async () => {
     await this.init();
   };
