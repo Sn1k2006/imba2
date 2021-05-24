@@ -17,8 +17,7 @@ import Colors from "./src/constants/Colors";
 import Layout from "./src/constants/Layout";
 import Orientation from 'react-native-orientation-locker';
 import SplashScreen from 'react-native-splash-screen'
-import {firebaseInitialization, notification} from "./src/actions/firebase";
-import {getTarget} from "./src/actions/target";
+import {notification} from "./src/actions/firebase";
 import NoInternet from "./src/components/NoInternet";
 import {toJS} from "mobx";
 import {goggleInit} from "./src/actions/google";

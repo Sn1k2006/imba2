@@ -1,9 +1,9 @@
 import {LoginManager, AccessToken, GraphRequest, GraphRequestManager} from "react-native-fbsdk";
 
 export const loginFB = async () => {
-  // await FBLogout()
+
   return new Promise((resolve, reject) => {
-    LoginManager.logInWithPermissions(["public_profile", 'email', 'user_likes']).then(
+    LoginManager.logInWithPermissions(["public_profile", 'email']).then(
       function (result) {
         if (result.isCancelled) {
           console.log("Login cancelled");
