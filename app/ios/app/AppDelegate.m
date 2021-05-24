@@ -39,7 +39,7 @@
   
    //firebase
   [FIRApp configure];
-  [RNFirebaseNotifications configure];
+  
   //
   
   //fonts
