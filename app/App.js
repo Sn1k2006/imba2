@@ -84,8 +84,6 @@ class App extends Component {
     StatusBar.setHidden(false, true);
     SplashScreen.hide();
     await initTracking();
-    const fcm = await firebaseInitialization(); //Настройка пушей
-    await UserStore.updateUser({fcm});
   };
 
   notifications = async () => {

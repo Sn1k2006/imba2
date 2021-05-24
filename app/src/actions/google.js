@@ -6,7 +6,7 @@ import {
 
 export const goggleInit = () => {
   GoogleSignin.configure({
-      iosClientId: '246561308651-kbopfvbf84f8mlkfm9tfo6166grdvs09.apps.googleusercontent.com'
+      iosClientId: '155437666676-thmb253eocme5evtt8rorurfvk2rpa4a.apps.googleusercontent.com'
     }
   );
 };

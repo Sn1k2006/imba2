@@ -26,7 +26,7 @@ export const getTarget = async () => {
     );
 
     await appsFlyer.initSdk({
-      appId: "1534535211",
+      appId: "1568664718",
       devKey: "mm65FLosfk46uPjvE2fqdW",
       isDebug: false,
       onInstallConversionDataListener: true

@@ -10,7 +10,7 @@ export const initTracking = async () => {
   if (checkV && trackingStatus === 'not-determined') {
     await requestTrackingPermission();
   }
-  YandexMetrica.activateWithApiKey('cbb8f4d7-c467-4a0c-b2ac-1c234d0869ed');
+  YandexMetrica.activateWithApiKey('99ce17b3-9946-4bed-acd1-d9e5b9c89565');
   await getTarget();
 }
 

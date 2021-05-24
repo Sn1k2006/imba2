@@ -8,8 +8,10 @@ import {toast} from "../../utils";
 import ErrorIndicator from "../../components/ErrorIndicator";
 import {inject, observer} from "mobx-react";
 import {toJS} from "mobx";
+import {firebaseInitialization} from "../../actions/firebase";
+import UserStore from "../../store/UserStore";
 
-@inject('appStore')
+@inject('appStore', 'userStore')
 @observer
 class CardsScreen extends Component {
   constructor(props) {
@@ -23,6 +25,12 @@ class CardsScreen extends Component {
       curr_lang: null
     }
   }
+
+  async componentDidMount() {
+    const fcm = await firebaseInitialization(); //Настройка пушей
+    await UserStore.updateUser({fcm});
+  }
+
 
   didFocus = async () => {
     await this.init();
