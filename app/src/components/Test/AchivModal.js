@@ -41,7 +41,6 @@ const styles = StyleSheet.create({
     alignSelf: 'center',
     width: 120,
     height: 120,
-    borderRadius: 240,
     backgroundColor: '#FFE498',
     marginBottom: 24,
     shadowColor: '#FFE498',
@@ -54,7 +53,6 @@ const styles = StyleSheet.create({
     width: 120,
     height: 120,
     resizeMode: 'cover',
-    borderRadius: 240
   }
 });
 

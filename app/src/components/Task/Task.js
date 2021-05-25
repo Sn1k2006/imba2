@@ -169,7 +169,7 @@ class Task extends React.Component {
                 <RenderContentBody content={data?.json?.body} style={{paddingHorizontal: 16}} containerStyle={{marginTop: 0}}/>
               </View>
               <LinearGradient style={styles.gradient}
-                              colors={['#00000080', '#272A2F00']} />
+                              colors={['#00000080', '#152C4A00']} />
               {data?.task || this.loading
                 ?
                 <View style={{paddingTop: 8}}>
@@ -235,7 +235,6 @@ const
       height: 48,
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 96
     },
     gradient: {
       width: '100%',

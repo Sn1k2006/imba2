@@ -92,10 +92,8 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.bg,
     marginVertical: 12,
     marginHorizontal: 16,
-    borderRadius: 4,
   },
   container: {
-    borderRadius: 4,
     backgroundColor: Colors.item_bg,
     padding: 24,
     overflow: 'hidden'

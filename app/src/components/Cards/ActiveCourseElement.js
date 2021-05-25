@@ -148,7 +148,6 @@ const styles = StyleSheet.create({
     justifyContent: 'space-between',
     borderWidth: 0,
     borderColor: '#FFDD00',
-    borderRadius: 4
   },
   title: {
     color: 'rgba(255, 255, 255, 0.64)',
@@ -156,7 +155,6 @@ const styles = StyleSheet.create({
   },
   linearGradient: {
     position: 'relative',
-    borderRadius: 4,
     paddingHorizontal: 24,
     paddingVertical: 16,
     textAlign: 'center',

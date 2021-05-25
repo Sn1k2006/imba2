@@ -60,28 +60,26 @@ const ProfileAchieveListItem = ({data, openModal, course}) => {
 const styles = StyleSheet.create({
   container: {
     height: 96,
-    borderRadius: 4,
     backgroundColor: Colors.item_bg,
     padding: 16,
     flexDirection: 'row'
   },
   shadow: {
     marginVertical: 12,
-    borderRadius: 4,
 
   },
   shadow_achieve: {
     width: 64,
     height: 64,
     backgroundColor: Colors.bg,
-    borderRadius: 128,
+    // borderRadius: 128,
     alignItems: 'center',
     justifyContent: 'center'
   },
   achieve_wrap: {
     width: '100%',
     height: '100%',
-    borderRadius: 128,
+    // borderRadius: 128,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',

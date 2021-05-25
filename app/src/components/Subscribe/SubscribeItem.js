@@ -71,7 +71,6 @@ const SubscribeItem = ({data, onClick, active, root_name = ''}) => {
 const styles = StyleSheet.create({
   container: {
     minHeight: 80,
-    borderRadius: 4,
     backgroundColor: Colors.item_bg,
     justifyContent: 'center',
     alignItems: 'center',
@@ -82,13 +81,11 @@ const styles = StyleSheet.create({
   shadow: {
     width: '100%',
     marginVertical: 12,
-    borderRadius: 4,
   },
   check: {
     position: 'absolute',
     width: 32,
     height: 32,
-    borderRadius: 64,
     backgroundColor: '#fff',
     left: 16,
     justifyContent: 'center',
@@ -101,7 +98,6 @@ const styles = StyleSheet.create({
     right: 0,
     top: 0,
     bottom: 0,
-    borderRadius: 4,
   },
 });
 

@@ -143,7 +143,6 @@ const styles = StyleSheet.create({
     position: 'relative',
     width: 295,
     maxWidth: '100%',
-    borderRadius: 4,
   },
   closeWrap: {
     position: 'absolute',

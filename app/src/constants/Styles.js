@@ -96,7 +96,6 @@ const shadow = {
   shadowOffset: {width: 0, height: 0},
   backgroundColor: Colors.bg,
   elevation: 3,
-  borderRadius: 4
 };
 
 const tab = {

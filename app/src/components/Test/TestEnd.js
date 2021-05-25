@@ -47,7 +47,7 @@ class TestEnd extends Component {
                   duration={0}
                   style={{borderRadius: 354}}
                   arcSweepAngle={360}
-                  tintColor={'#01CB65'}
+                  tintColor={Colors.tintColor}
                   backgroundColor="#ffffff00"
                   children={() => <Text style={styles.percent}>{test_results?.percent || 0}%</Text>}
                 >
@@ -61,7 +61,7 @@ class TestEnd extends Component {
               duration={0}
               style={{borderRadius: 354}}
               arcSweepAngle={360}
-              tintColor={'#01CB65'}
+              tintColor={Colors.tintColor}
               backgroundColor="#ffffff00"
               children={() => <Text style={styles.percent}>{test_results?.percent || 0}%</Text>}
             >
@@ -78,7 +78,7 @@ class TestEnd extends Component {
                 :
                 null}
               <ShadowView style={[Styles.shadow, styles.mark_shadow]}>
-                <View style={{borderRadius: 4, overflow: 'hidden'}}>
+                <View style={{overflow: 'hidden'}}>
                 <Text style={styles.mark}>{translate('YOUR_POINTS')} {Math.floor((test_results?.percent || 0) / 10)} </Text>
                 </View>
                 </ShadowView>
@@ -178,7 +178,6 @@ const styles = StyleSheet.create({
   },
   mark_shadow: {
     marginHorizontal: 24,
-    borderRadius: 4,
     backgroundColor: Colors.second_bg
   },
   mark: {
@@ -204,7 +203,6 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.second_bg,
     width: 40,
     height: 40,
-    borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center'
   },

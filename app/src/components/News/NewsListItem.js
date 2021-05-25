@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, ImageBackground, TouchableWithoutFeedback} from 'react-native';
 import {View, Text} from 'native-base';
-import ShadowView from 'react-native-simple-shadow-view'
 import Styles from "../../constants/Styles";
 import {addHostToPath} from "../../utils";
 import {getNewsDate} from "../../actions/news";
@@ -12,12 +11,11 @@ import {translate} from "../../utils";
 import Fonts from "../../constants/Fonts";
 
 
-export const COLORS = ['#FFDD00', '#FC2A52', '#01CB65', '#FF9533', '#7459FF'];
+export const COLORS = ['#FFDD00', '#FC2A52', Colors.tintColor, '#FF9533', '#7459FF'];
 
 const NewsListItem = ({data, onPress}) => {
   return (
     <TouchableWithoutFeedback onPress={onPress(data.id)}>
-      <ShadowView style={styles.shadow}>
         <View style={styles.container}>
           <View style={styles.image_wrap}>
             {data.image
@@ -41,29 +39,18 @@ const NewsListItem = ({data, onPress}) => {
           <Text style={[Styles.small_text, styles.date]}>{getNewsDate(data.updated_at) || ''}</Text>
           <NewsCoursesList courses={data?.cards} full={false}/>
         </View>
-      </ShadowView>
     </TouchableWithoutFeedback>
   );
 };
 
 const styles = StyleSheet.create({
-  shadow: {
+  container: {
     overflow: 'hidden',
-    shadowColor: Colors.shadow,
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 0},
-    backgroundColor: Colors.bg,
     marginVertical: 12,
     marginHorizontal: 16,
-    borderRadius: 4,
-  },
-  container: {
-    borderRadius: 4,
     backgroundColor: Colors.item_bg,
     padding: 24,
     paddingBottom: 0
-
   },
   image_wrap: {
     justifyContent: 'center',

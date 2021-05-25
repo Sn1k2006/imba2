@@ -19,7 +19,7 @@ const Avatar = ({progress = null, small = false, image, edit, size = 128, icon_s
   const borderRadius = (size * 2) || 0;
   return (
     <ShadowView style={[Styles.shadow, styles.shadow, {borderRadius, width: size, height: size}]}>
-      <LinearGradient style={{borderRadius: 256} } colors={[ Colors.second_bg, Colors.bg]}>
+      <LinearGradient style={{borderRadius}} colors={[ Colors.second_bg, Colors.bg]}>
       <View style={[styles.container, {padding: progress !== null ? 6 : 0}]}>
         {progress !== null
           ?

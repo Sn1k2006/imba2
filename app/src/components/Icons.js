@@ -453,7 +453,7 @@ check_color: (size = 32, color = Colors.tintColor) => (
       <Circle cx="88" cy="88" r="77.5" stroke="white" strokeOpacity="0.08"/>
       <Defs>
         <LinearGradient id="paint0_linear" x1="88" y1="0" x2="88" y2="176" gradientUnits="userSpaceOnUse">
-          <Stop stopColor="#272A2F"/>
+          <Stop stopColor="#152C4A"/>
           <Stop offset="1" stopColor="#181B20"/>
         </LinearGradient>
       </Defs>

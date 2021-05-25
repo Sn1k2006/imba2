@@ -47,12 +47,10 @@ const styles = StyleSheet.create({
     // marginVertical: 12,
     marginBottom: 24,
     marginHorizontal: 16,
-    borderRadius: 4,
   },
   container: {
     flex: 1,
     height: 80,
-    borderRadius: 4,
     backgroundColor: '#33363A',
     paddingHorizontal: 24,
     justifyContent: 'flex-start',

@@ -37,14 +37,12 @@ const styles = StyleSheet.create({
   pagination_item_active: {
     marginHorizontal: 4,
     height: 6,
-    borderRadius: 10,
     backgroundColor: Colors.secondColor,
   },
   pagination_item: {
     marginHorizontal: 4,
     backgroundColor: Colors.text_muted,
     height: 6,
-    borderRadius: 12
   }
 });
 

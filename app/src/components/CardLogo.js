@@ -57,7 +57,6 @@ const CardLogo = ({second_icon = null, size = 40, bgc = Colors.second_bg, image 
 const styles = StyleSheet.create({
   container: {
     flex: 0,
-    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',

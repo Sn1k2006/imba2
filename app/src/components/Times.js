@@ -57,7 +57,6 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     marginHorizontal: 4,
     backgroundColor: 'rgba(255, 255, 255, 0.04)',
-    borderRadius: 4,
   },
   separator: {
     width: '100%',

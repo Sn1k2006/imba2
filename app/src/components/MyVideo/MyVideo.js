@@ -96,7 +96,6 @@ const styles = StyleSheet.create({
   container: {
     position: 'relative',
     width: '100%',
-    borderRadius: 4,
     alignItems: 'center',
     overflow: 'hidden',
   },
@@ -106,7 +105,6 @@ const styles = StyleSheet.create({
     width: '100%',
     flex: 1,
     height: 100,
-    borderRadius: 4,
     backgroundColor: Colors.bg,
   },
   container_full: {
@@ -125,7 +123,6 @@ const styles = StyleSheet.create({
     // bottom: 0,
     // right: 0,
     backgroundColor: Colors.bg,
-    borderRadius: 4,
   },
 
 });

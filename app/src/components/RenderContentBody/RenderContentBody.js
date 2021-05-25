@@ -229,7 +229,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#ffffff00',
   },
   card_soon_stub: {
-    borderRadius: 8,
     backgroundColor: '#00000099',
     width: 56,
     height: 56,
@@ -243,7 +242,6 @@ const styles = StyleSheet.create({
     marginHorizontal: -24,
     marginTop: 40,
     overflow: 'hidden',
-    borderRadius: 4,
     // backgroundColor: Colors.item_bg,
     // paddingTop: 8,
   },
@@ -276,7 +274,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',
-    borderRadius: 64,
     width: 32,
     height: 32,
     backgroundColor: Colors.secondColor,

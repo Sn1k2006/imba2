@@ -117,17 +117,7 @@ class CardsSwiperItem extends Component {
               </Animated.View>
               : null
             }
-            {this.image
-              ?
-              <View style={styles.x_wrap}>
-                <FastImage source={this.image[0]} style={styles.x_b}/>
-                <FastImage source={this.image[1]} style={styles.x_gr}/>
-              </View>
-              :
-              null
-            }
 
-            <Text style={styles.count_text}><Text style={styles.count_text_s}>#</Text>{i + 1}</Text>
             <View style={styles.progress}>
               {course.starting_soon
                 ?
@@ -196,7 +186,6 @@ const styles = StyleSheet.create({
     color: Colors.tintColor
   },
   x_wrap: {
-    borderRadius: Platform.OS === 'ios' ? 0 : 8,
     overflow: 'hidden',
     top: 0,
     bottom: 0,
@@ -244,11 +233,9 @@ const styles = StyleSheet.create({
   item: {
     position: 'relative',
     width: '100%',
-    borderRadius: Platform.OS === 'ios' ? 0 : 8,
     backgroundColor: '#0d2b2d',
   },
   image: {
-    borderRadius: 8,
     overflow: 'visible',
     alignSelf: 'center',
     position: 'absolute',
@@ -288,13 +275,10 @@ const styles = StyleSheet.create({
     left: 0,
     backgroundColor: Colors.tintColor,
     minWidth: 104,
-    paddingLeft: 16,
-    paddingRight: 24,
+    paddingHorizontal: 16,
     textAlign: 'center',
     paddingVertical: 4,
     alignItems: 'center',
-    borderTopRightRadius: 20,
-    borderBottomLeftRadius: Platform.OS === 'ios' ? 0 : 4,
   }
 });
 

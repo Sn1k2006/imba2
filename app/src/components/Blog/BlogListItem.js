@@ -59,7 +59,6 @@ const BlogListItem = ({data, openModal, own, user}) => {
 const styles = StyleSheet.create({
   container: {
     height: 72,
-    borderRadius: 16,
     backgroundColor: '#ffffff',
     paddingLeft: 16,
     paddingRight: 20,
@@ -68,7 +67,6 @@ const styles = StyleSheet.create({
   shadow: {
     marginHorizontal: 16,
     marginVertical: 12,
-    borderRadius: 16,
 
   },
   like_wrap: {

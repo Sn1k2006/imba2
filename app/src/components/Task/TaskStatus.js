@@ -5,6 +5,7 @@ import {observer} from "mobx-react";
 import Styles from "../../constants/Styles";
 import {translate} from "../../utils";
 import Icons from "../Icons";
+import Colors from '../../constants/Colors';
 
 @observer
 class TaskStatus extends Component {
@@ -14,7 +15,7 @@ class TaskStatus extends Component {
     const {status} = this.props;
     let color = '#FFDD00';
     if(status === 'rework') color = '#FC2A52'
-    else if(status === 'accepted') color = '#01CB65'
+    else if(status === 'accepted') color = Colors.tintColor
     return (
       <View style={styles.container}>
         <View style={{paddingBottom: 4}}>

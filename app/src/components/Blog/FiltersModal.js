@@ -156,12 +156,10 @@ const styles = StyleSheet.create({
   logo: {
     borderWidth: 1,
     padding: 2,
-    borderRadius: 10,
     borderColor: '#ffffff',
   },
   logo_all: {
     width: 56, height: 56,
-    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     backgroundColor: Colors.secondColor,

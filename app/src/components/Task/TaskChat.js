@@ -108,7 +108,6 @@ const styles = StyleSheet.create({
     flex: 1,
     borderWidth: 1,
     borderColor: Colors.item_bg,
-    borderRadius: 8,
   },
   message_own: {
     borderTopRightRadius: 0,

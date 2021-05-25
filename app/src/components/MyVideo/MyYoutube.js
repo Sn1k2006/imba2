@@ -11,7 +11,6 @@ const MyYoutube = ({videoId}) => {
         style={{
           alignSelf: 'stretch',
           height: Layout.window.width * .5625,
-          borderRadius: 4,
           overflow: 'hidden'
         }}
       />

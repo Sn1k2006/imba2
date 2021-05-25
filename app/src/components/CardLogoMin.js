@@ -24,7 +24,6 @@ const CardLogoMin = ({size = 40, bgc = Colors.thirdColor, image = null, icon = '
 const styles = StyleSheet.create({
   container: {
     flex: 0,
-    borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden',

@@ -123,15 +123,12 @@ const styles = StyleSheet.create({
   },
   shadow: {
     alignSelf: 'center',
-    borderRadius: 16,
     marginBottom: 24
   },
   image: {
-    borderRadius: 4,
   },
   answer: {
     backgroundColor: Colors.item_bg,
-    borderRadius: 4,
     paddingVertical: 16,
     paddingHorizontal: 24,
     marginTop: 16,

@@ -122,7 +122,6 @@ const Cards = ({data = [], navigation, active_course, continue_el_loading, subsc
           <View style={{
             height: 109,
             backgroundColor: Colors.item_bg,
-            borderRadius: 4,
             alignItems: 'center',
             justifyContent: 'center',
             overflow: 'hidden'
@@ -152,7 +151,6 @@ const Cards = ({data = [], navigation, active_course, continue_el_loading, subsc
         :
         <>
           <Text style={[Styles.item_title, styles.title]}>{translate('Description')}</Text>
-          <ShadowView style={Styles.shadow}>
             <View style={styles.content}>
               <Text style={[Styles.item_title, {textAlign: 'center', paddingBottom: 16}]}>{curr_course?.name}</Text>
               <Text style={[Styles.text, {textAlign: 'center'}]}>{curr_course?.json?.description}</Text>
@@ -163,7 +161,6 @@ const Cards = ({data = [], navigation, active_course, continue_el_loading, subsc
                 null
               }
             </View>
-          </ShadowView>
         </>
       }
       {/* End Описание */}
@@ -182,7 +179,6 @@ const styles = StyleSheet.create({
   },
   content: {
     position: 'relative',
-    borderRadius: 4,
     backgroundColor: Colors.item_bg,
     padding: 24,
     textAlign: 'center',

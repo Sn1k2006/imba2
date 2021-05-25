@@ -77,12 +77,11 @@ class CourseListItem extends Component {
       <View style={[styles.container]}
             onLayout={setPos}>
         <View style={[styles.item]}>
-          <ShadowView style={[disabled ? {} : Styles.shadow, {borderRadius: 4}]}>
           <TouchableWithoutFeedback onPress={onPress(data, last_active, showTimer)} disabled={disabled}>
             <View style={[
               styles.inner_item,
-              showTimer ? styles.item_timer: {}
-              // disabled ? {backgroundColor: Colors.bg, opacity: 0.4} : {}
+              showTimer ? styles.item_timer: {},
+              disabled ? {opacity: 0.6} : {}
             ]}>
               <View style={{
                 backgroundColor: data.type === 'task' ? this.getTaskBg() : getColorBg(data.type, data?.settings),
@@ -101,7 +100,6 @@ class CourseListItem extends Component {
               />
             </View>
           </TouchableWithoutFeedback>
-          </ShadowView>
         </View>
 
       </View>
@@ -129,8 +127,6 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     backgroundColor: Colors.item_bg,
-    borderRadius: 4,
-    // paddingVertical: 4,
   },
   item_timer: {
     borderColor: '#FFDD00',

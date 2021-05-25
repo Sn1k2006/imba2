@@ -102,8 +102,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   btn: {
+    borderRadius: 0,
     flex: 0,
-    borderRadius: 4,
     alignItems: 'center',
     justifyContent: 'center',
 

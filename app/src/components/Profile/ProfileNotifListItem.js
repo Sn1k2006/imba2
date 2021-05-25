@@ -102,7 +102,6 @@ const styles = StyleSheet.create({
   container: {
     zIndex: 1,
     minHeight: 80,
-    borderRadius: 4,
     backgroundColor: '#33363A',
     padding: 16,
     marginVertical: 12,
@@ -120,7 +119,6 @@ const styles = StyleSheet.create({
     height: 32,
     marginRight: 16,
     borderWidth: 0,
-    borderRadius: 4,
     borderColor: Colors.item_bg,
     textAlign: 'center',
     justifyContent: 'center',
@@ -132,7 +130,6 @@ const styles = StyleSheet.create({
     width: 110,
     borderWidth: 1,
     borderColor: Colors.item_bg,
-    borderRadius: 4,
     height: 32,
   },
   swipe_item: {

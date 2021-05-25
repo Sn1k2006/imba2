@@ -37,7 +37,6 @@ const styles = StyleSheet.create({
     height: 128,
     justifyContent: 'center',
     alignItems: 'center',
-    borderRadius: 8
   },
   image: {
     position: 'absolute',

@@ -28,7 +28,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     flex: 0,
-    borderRadius: 6
   },
   container_border: {
     borderWidth: 1,

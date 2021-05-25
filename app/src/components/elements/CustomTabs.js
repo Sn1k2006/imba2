@@ -53,8 +53,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
   },
   tab_bg: {
-    borderRadius: 4,
-    backgroundColor: '#33363A',
+    backgroundColor: '#293e53',
+    // backgroundColor: Colors.item_bg,
   },
   text: {
     paddingHorizontal: 16,
@@ -75,7 +75,6 @@ const styles = StyleSheet.create({
     flex: 0,
     alignSelf: 'center',
     opacity: 0,
-    borderRadius: 12,
     backgroundColor: Colors.secondColor
   },
 
@@ -85,7 +84,6 @@ const styles = StyleSheet.create({
     top: 0,
     width: 8,
     height: 8,
-    borderRadius: 16,
     backgroundColor: Colors.thirdColor,
   },
 });

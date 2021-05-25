@@ -107,11 +107,10 @@ const styles = StyleSheet.create({
     top: -12,
     width: 8,
     height: 8,
-    borderRadius: 16,
     backgroundColor: Colors.thirdColor,
   },
   footer_tab: {
-    backgroundColor: '#272A2F',
+    backgroundColor: '#152C4A',
     position: 'relative',
   },
   footer_tab_wrap: {
@@ -124,13 +123,13 @@ const styles = StyleSheet.create({
   },
   footer_btn_wrap: {
     flex: 1,
-    backgroundColor: '#272A2F',
+    backgroundColor: '#152C4A',
     zIndex: 1,
   },
   footer_btn: {
     flex: 1,
     width: '100%',
-    backgroundColor: '#272A2F',
+    backgroundColor: '#152C4A',
     borderRadius: 0,
   },
 
