@@ -20,6 +20,7 @@ import Footer from "../../components/Footer";
 import CourseStickyHeader from "../../components/Course/CourseStickyHeader";
 import MyStatusBar from "../../components/MyStatusbar";
 import FreeCourseModal from "../../components/Course/FreeCourseModal";
+import RadialGradient from 'react-native-radial-gradient';
 
 const HEADING = Platform.OS === 'ios' ? 360 : 370;
 
@@ -213,6 +214,7 @@ class CourseContainer extends Component {
                       handleBack={handleBack}
                       courseRouting={this.courseRouting}
                       progress={parent?.progress}
+                      soon={time_to_open}
                     />
                     <View style={{marginTop: -20}}>
                       <CustomTabs
@@ -263,6 +265,7 @@ class CourseContainer extends Component {
                 </View>
               </View>
             </ScrollView>
+
             <CourseStickyHeader
               disabled_tools={disabled_tools}
               handleBack={handleBack}

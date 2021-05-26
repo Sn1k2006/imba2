@@ -2,11 +2,12 @@ const tintColor = '#55CFA2';
 
 export default {
   tintColor,
-  secondColor: '#634ED4',
-  thirdColor: '#FC2A52',
-  bg: '#181B20',
+  secondColor: '#7459FF',
+  thirdColor: '#FC5575',
+  bg: '#021734',
   second_bg: '#152C4A',
   secondColorOpacity: '#0FDBD040',
+  yellow: '#FCEB55',
   title: '#24283E',
   item_bg: 'rgba(255, 255, 255, 0.08)',
   item_title: '#1F2D3D',
@@ -16,5 +17,5 @@ export default {
   border: '#505054',
   statusBar: '#ffffff00',
   disable_bg: '#2C3036',
-  shadow: '#181B20',
+  shadow: '#021734',
 };

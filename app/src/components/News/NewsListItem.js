@@ -11,7 +11,7 @@ import {translate} from "../../utils";
 import Fonts from "../../constants/Fonts";
 
 
-export const COLORS = ['#FFDD00', '#FC2A52', Colors.tintColor, '#FF9533', '#7459FF'];
+export const COLORS = ['#FCEB55', '#FC5575', Colors.tintColor, '#FF9533', '#7459FF'];
 
 const NewsListItem = ({data, onPress}) => {
   return (
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
     top: 12,
     left: -24,
-    backgroundColor: '#fc2a52',
+    backgroundColor: '#FC5575',
     width: 100,
     height: 24,
     justifyContent: 'center',

@@ -22,34 +22,18 @@ class Footer extends React.Component {
             <View style={[styles.footer_btn_wrap, {borderTopLeftRadius: 15}]}>
               <Button onPress={this.handleRoute('News')} style={[styles.footer_btn, styles.footer_btn_1]}
                       transparent>
-                {active === 'news'
-                  ?
-                  Icons.news_active(32)
-                  :
-                  Icons.news_footer()
-                }
+                {Icons.news_footer(active === 'news' ? 1 : 0.24, active === 'news' ? Colors.tintColor : Colors.text)}
               </Button>
             </View>
             <View style={styles.footer_btn_wrap}>
               <Button onPress={this.handleRoute('Courses')} style={styles.footer_btn} transparent>
-                {active === 'courses'
-                  ?
-                  Icons.home_active(32)
-                  :
-                  Icons.home_footer(32, Colors.text_muted)
-                }
+                {Icons.home_footer(active === 'courses' ? 1 : 0.24, active === 'courses' ? Colors.tintColor : Colors.text)}
               </Button>
             </View>
             <View style={[styles.footer_btn_wrap, {borderTopRightRadius: 15,}]}>
               <Button onPress={this.handleRoute('Profile')} style={[styles.footer_btn, styles.footer_btn_2]}
                       transparent>
-
-                {active === 'profile'
-                  ?
-                  Icons.user_active(32)
-                  :
-                  Icons.user_footer(32, Colors.text_muted)
-                }
+                {Icons.user_footer(active === 'profile' ? 1 : 0.24, active === 'profile' ? Colors.tintColor : Colors.text)}
                 {userStore.user?.notifications_count
                   ?
                   <View style={styles.notif_wrap}>
@@ -64,12 +48,7 @@ class Footer extends React.Component {
             <View style={[styles.footer_btn_wrap, {borderTopRightRadius: 15,}]}>
               <Button onPress={this.handleRoute('Events')} style={[styles.footer_btn, styles.footer_btn_2]}
                       transparent>
-                {active === 'events'
-                  ?
-                  Icons.events_active(32)
-                  :
-                  Icons.events_footer(32, Colors.text_muted)
-                }
+                {Icons.events_footer(active === 'events' ? 1 : 0.24, active === 'events' ? Colors.tintColor : Colors.text)}
                 {userStore.user?.events_count
                   ?
                   <View style={styles.notif_wrap}>

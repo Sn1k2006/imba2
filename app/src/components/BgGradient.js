@@ -24,18 +24,18 @@ const BgGradient = ({x, bg_img, blur, top, dark}) => {
           start={{x: 0, y: 0}}
           // end={{x: 1, y: 0}}
           style={[styles.gradient, styles.dark_gradient]}
-          colors={['#FC2A5200', '#181B2090', '#181B20']}
+          colors={['#FC557500', '#02173490', '#021734']}
         />
         :
         top
           ?
           <LinearGradient style={[styles.gradient, styles.top_r_gradient]}
-                          colors={['#FC2A52', '#FC2A5230', '#FC2A5200']}
+                          colors={['#FC5575', '#FC557530', '#FC557500']}
                           locations={[0, 0.6, 1]}
                           start={{x: 0.0, y: 0}} end={{x: 0.5, y: 0.5}}/>
           :
           <LinearGradient style={[styles.gradient, styles.bottom_gradient]} locations={[0, 0.5, 1]}
-                          colors={['#ffffff00', '#FC2A5200', '#FC2A52']}
+                          colors={['#ffffff00', '#FC557500', '#FC5575']}
                           start={{x: 0.0, y: 0}} end={{x: 1, y: 1}}/>
       }
       {x

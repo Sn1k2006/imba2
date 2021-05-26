@@ -4,6 +4,7 @@ export default {
   // regular,
   bold: 'Roboto-bold',
   medium: 'Roboto-Medium',
+  light: 'Roboto-Light',
   regular: 'System',
   // sizeTitle: Layout.isSmallDevice ? 15 : 17,
   // sizeSmall: Layout.isSmallDevice ? 11 : 13,

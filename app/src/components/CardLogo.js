@@ -15,7 +15,7 @@ const CardLogo = ({second_icon = null, size = 40, bgc = Colors.second_bg, image 
   return (
     <ShadowView style={[percent !== null ? styles.shadow : {}, {position: 'relative', borderRadius: borderRadius || (size * 2)}, container_style]}>
       <View style={[
-        styles.container, {width: size, height: size, backgroundColor: imageUri ? '#ffffff00' : bgc, borderRadius: round ? size * 2 : 8},
+        styles.container, {width: size, height: size, backgroundColor: imageUri ? '#ffffff00' : bgc, borderRadius: round ? size * 2 : 0},
         percent !== null ? {borderRadius: size * 2} : {},
         style]}>
         {imageUri

@@ -78,6 +78,7 @@ const Cards = ({data = [], navigation, active_course, continue_el_loading, subsc
   }
   return (
     <>
+
       <Text style={Styles.title}>{translate('Courses')} <Text
         style={[Styles.title, {color: Colors.thirdColor}]}>{active_course + 1}</Text>
         <Text style={[Styles.text, {lineHeight: 28}]}>/{data?.length || ''}</Text>

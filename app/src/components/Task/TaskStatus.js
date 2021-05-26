@@ -13,8 +13,8 @@ class TaskStatus extends Component {
   render(){
     if(!this.props.status) return null;
     const {status} = this.props;
-    let color = '#FFDD00';
-    if(status === 'rework') color = '#FC2A52'
+    let color = '#FCEB55';
+    if(status === 'rework') color = '#FC5575'
     else if(status === 'accepted') color = Colors.tintColor
     return (
       <View style={styles.container}>

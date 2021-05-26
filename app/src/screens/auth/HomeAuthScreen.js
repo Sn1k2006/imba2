@@ -1,17 +1,17 @@
 import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet, ScrollView, Platform, Image} from 'react-native';
+import {SafeAreaView, StyleSheet,StatusBar} from 'react-native';
 import {View, Text} from 'native-base';
-import Colors from "../../constants/Colors";
-import CustomBtn from "../../components/elements/CustomBtn";
+import Colors from '../../constants/Colors';
+import CustomBtn from '../../components/elements/CustomBtn';
 import {translate} from '../../utils';
-import Styles from "../../constants/Styles";
-import {inject, observer} from "mobx-react";
-import MyStatusBar from "../../components/MyStatusbar";
-import {FBLogout} from "../../actions/facebook";
-import {signOutGoogle} from "../../actions/google";
-import BgGradient from "../../components/BgGradient";
+import {inject, observer} from 'mobx-react';
+import {FBLogout} from '../../actions/facebook';
+import {signOutGoogle} from '../../actions/google';
 import logo from '../../assets/images/logo.png';
-import FastImage from "react-native-fast-image";
+import homeMan from '../../assets/images/homeMan.png';
+import FastImage from 'react-native-fast-image';
+import RadialGradient from 'react-native-radial-gradient';
+import LinearGradient from 'react-native-linear-gradient';
 
 @inject('appStore', 'userStore')
 @observer
@@ -34,25 +34,39 @@ class HomeAuthScreen extends Component {
     return (
       <SafeAreaView style={[styles.container]}>
         {/*<StatusBar barStyle="light-content" translucent={false} hidden={false} backgroundColor={'transparent'}/>*/}
-        <MyStatusBar  translucent={false} hidden={false} backgroundColor={'transparent'} />
-        <BgGradient bg_img dark/>
-        <ScrollView contentContainerStyle={styles.scroll_view}>
-          <View style={styles.content}>
-            <View>
-              {/*<Logo stub={Icons.app_stub(32, 'red')} bgc='#F8D7A5' image={require('../../assets/images/111.jpg')}/>*/}
-              <FastImage source={logo} style={styles.logo}/>
-
+        <StatusBar translucent={true} hidden={false} backgroundColor={'transparent'} />
+        <View style={styles.content}>
+          <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
+                          colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                          stops={[0.1, 0.4, 0.3, 0.75]}
+                          center={[300, 300]}
+                          radius={600} />
+          <FastImage source={logo} style={styles.logo} />
+          <View style={{flex: 1,  height: '100%', width: '100%'}}>
+            <View style={styles.bgWrap}>
+              <FastImage source={homeMan} style={{width: '100%', height: '100%', right: 90}}
+                         resizeMode={FastImage.resizeMode.contain} />
+              <LinearGradient
+                style={{flex: 1, position: 'absolute', bottom: 0, left: 0, width: '100%', height: 250,}}
+                locations={[0, 0.8, 1]}
+                colors={[Colors.bg + '00', Colors.bg, Colors.bg]} />
             </View>
-
           </View>
-          <View style={[styles.btn_wrap, {width: '100%'}]}>
-            <Text style={[Styles.text, styles.app_desc]}>{app_info?.description}</Text>
-            <CustomBtn title={translate('Enter')} width={200}  onPress={this.route('Login', 'login')}
-                       wrap_style={styles.btn_wrap}/>
-            <CustomBtn title={translate('Registration')} width={200} type={'outline'} onPress={this.route('Login', 'register')}
-                       wrap_style={styles.btn_wrap}/>
-          </View>
-        </ScrollView>
+        </View>
+        <View style={styles.btn_wrap}>
+          {/*<Text style={[Styles.text, styles.app_desc]}>{app_info?.description}</Text>*/}
+          <CustomBtn title={translate('Enter')} width={200} onPress={this.route('Login', 'login')}
+                     wrap_style={styles.btn_wrap} />
+          <CustomBtn title={translate('Registration')} width={200} type={'outline'}
+                     onPress={this.route('Login', 'register')}
+                     wrap_style={styles.btn_wrap} />
+        </View>
+        <RadialGradient
+          style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
+          colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+          stops={[0.1, 0.4, 0.3, 0.75]}
+          center={[300, 300]}
+          radius={600} />
       </SafeAreaView>
     );
   }
@@ -60,14 +74,23 @@ class HomeAuthScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === 'ios' ? 20 : 0,
+    paddingTop: 20,
     height: '100%',
     flex: 1,
     backgroundColor: Colors.bg
   },
+  bgWrap: {
+    position: 'absolute',
+    width: '140%',
+    height: '140%',
+    maxWidth: 460,
+    maxHeight: 700,
+    top: -60,
+    justifyContent: 'flex-start',
+  },
   logo: {
-    width: 250,
-    height: 250
+    width: 205,
+    height: 95
   },
   scroll_view: {
     flexGrow: 1,
@@ -81,9 +104,11 @@ const styles = StyleSheet.create({
     width: '100%',
     alignItems: 'center',
     justifyContent: 'flex-start',
-    paddingTop: 80,
+    paddingTop: 20,
   },
   btn_wrap: {
+    width: '100%',
+    zIndex: 1,
     paddingBottom: 16
   },
   app_desc: {

@@ -19,7 +19,7 @@ const CustomBtn = ({
                      color = '#ffffff',
                      width,
                      full = false,
-                     bgc = Colors.tintColor,
+                     bgc = Colors.secondColor,
                      loading = false,
                      success = false,
                      disabled = false,
@@ -62,7 +62,6 @@ const CustomBtn = ({
   };
   return (
     <View style={[styles.btn_wrap, wrap_style]}>
-      <ShadowView style={type === 'primary' && !disabled ? [Styles.shadow, styles.primary_shadow] : {flexDirection: 'row'}}>
       <Button
         loading={loading}
         disabled={loading || disabled}
@@ -78,7 +77,6 @@ const CustomBtn = ({
         :
         null}
       </Button>
-      </ShadowView>
     </View>
 
   );
@@ -91,11 +89,6 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center'
   },
-  primary_shadow: {
-    shadowColor: Colors.tintColor,
-    textAlign: 'center',
-    flexDirection: 'row'
-  },
   btn_wrap: {
     flex: 0,
     alignItems: 'center',
@@ -106,7 +99,6 @@ const styles = StyleSheet.create({
     flex: 0,
     alignItems: 'center',
     justifyContent: 'center',
-
     overflow: 'hidden',
     position: 'relative',
     paddingHorizontal: 16,
@@ -122,7 +114,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   btn_primary: {
-    borderColor: Colors.tintColor
+    borderColor: Colors.secondColor
   },
   btn_disable: {
     backgroundColor: Colors.disable_bg,

@@ -1,7 +1,8 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Text} from 'react-native';
 import {View} from 'native-base';
-import LinearGradient from "react-native-linear-gradient";
+import LinearGradient from 'react-native-linear-gradient';
+import Styles from '../constants/Styles';
 
 const Progress = ({
                     style,
@@ -9,33 +10,39 @@ const Progress = ({
                     height = 8,
                     progress = 0,
                     color = '#ffffff',
-  color2,
-                    unfilledColor = '#ffffff90'
+                    color2,
+                    title,
+                    unfilledColor = '#ffffff32'
                   }) => {
-  const percent_width = (width * progress) / 100;
+  // const percent_width = (width * progress) / 100;
   return (
-    <View style={[styles.container, {width, height, backgroundColor: unfilledColor}, {style}]}>
-
-      <View style={[styles.percent, {width: percent_width, backgroundColor: color}]}>
-        {color2
+    <>
+      {title
         ?
-          <LinearGradient
-            start={{x: 0, y: 0}} end={{x: 1, y: 0}}
-            colors={[color, color2]}
-            style={styles.linearGradient}
-          />
+        <Text style={Styles.text}>{Math.floor(progress) || 0}%</Text>
         :
         null
-        }
-
+      }
+      <View style={[styles.container, {width, height, backgroundColor: unfilledColor}, {style}]}>
+        <View style={[styles.percent, {width: `${progress}%`, backgroundColor: color}]}>
+          {color2
+            ?
+            <LinearGradient
+              start={{x: 0, y: 0}} end={{x: 1, y: 0}}
+              colors={[color, color2]}
+              style={styles.linearGradient}
+            />
+            :
+            null
+          }
+        </View>
       </View>
-    </View>
+    </>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
-    borderRadius: 1,
     overflow: 'hidden'
   },
   percent: {

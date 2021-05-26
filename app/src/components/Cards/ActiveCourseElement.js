@@ -14,6 +14,7 @@ import moment from "moment";
 import AppStore from "../../store/AppStore";
 import UserStore from "../../store/UserStore";
 import Spinner from "../Spinner";
+import StarBgIcons from '../Icons/StarBgIcons';
 
 let interval;
 
@@ -50,7 +51,10 @@ const ActiveCourseElement = ({data, continueRoute, course, active_course}) => {
 
 
   const renderRightIcon = () => {
-    if (disabled && data.type !== 'section' && data.type !== 'direction') return Icons.pass_lock(40, Colors.text_muted);
+    if (disabled && data.type !== 'section' && data.type !== 'direction') return <View style={{justifyContent: "center", alignItems: 'center'}}>
+      <View style={{position: 'absolute'}}>{StarBgIcons.border(64)}</View>
+      {Icons.pass_unlock(40,)}
+    </View>
     else if (data.type === 'section' || data.type === 'direction') return <CardLogo image={null} icon={'folder_fill'}
                                                                                     bgc={Colors.thirdColor}
                                                                                     icon_size={32} size={48}/>
@@ -147,7 +151,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     justifyContent: 'space-between',
     borderWidth: 0,
-    borderColor: '#FFDD00',
+    borderColor: '#FCEB55',
   },
   title: {
     color: 'rgba(255, 255, 255, 0.64)',

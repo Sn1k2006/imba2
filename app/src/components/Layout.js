@@ -9,6 +9,7 @@ import {observer} from "mobx-react";
 import MyStatusBar from "./MyStatusbar";
 import LinearGradient from "react-native-linear-gradient";
 import BgGradient from "./BgGradient";
+import RadialGradient from 'react-native-radial-gradient';
 
 @observer
 class Layout extends React.Component {
@@ -27,6 +28,7 @@ class Layout extends React.Component {
       bg_gradient,
       content_style = {},
       container_style = {},
+      radialGrad,
       ...headerProps
     } = this.props;
 
@@ -48,6 +50,24 @@ class Layout extends React.Component {
               null
             }
             {header && Platform.OS === 'android' ? <Header {...headerProps}/> : null}
+            {radialGrad
+            ?
+            <>
+              <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
+                              colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                              stops={[0.1, 0.4, 0.3, 0.75]}
+                              center={[300, 300]}
+                              radius={600} />
+              <RadialGradient style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
+                              colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                              stops={[0.1, 0.4, 0.3, 0.75]}
+                              center={[300, 300]}
+                              radius={600} />
+            </>
+            :
+            null
+            }
+
             {noContent
               ?
               <SafeAreaView style={[styles.container]}>

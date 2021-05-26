@@ -1,63 +1,36 @@
 import React, {Component} from 'react';
-import {Image, StyleSheet, TouchableOpacity, Platform} from 'react-native';
+import {StyleSheet, TouchableOpacity, Platform} from 'react-native';
 import {View, Text} from 'native-base';
-import {action, observable} from "mobx";
-import x_b_1 from "../../assets/images/x/x_b_1.png";
-import x_gr_1 from "../../assets/images/x/x_gr_1.png";
-import x_b_2 from "../../assets/images/x/x_b_2.png";
-import x_gr_2 from "../../assets/images/x/x_gr_2.png";
-import x_b_3 from "../../assets/images/x/x_b_3.png";
-import x_gr_3 from "../../assets/images/x/x_gr_3.png";
-import x_b_4 from "../../assets/images/x/x_b_4.png";
-import x_gr_4 from "../../assets/images/x/x_gr_4.png";
-import x_b_5 from "../../assets/images/x/x_b_5.png";
-import x_gr_5 from "../../assets/images/x/x_gr_5.png";
-import {inject, observer} from "mobx-react";
-import {getColor, getPercent} from "../../actions/courses";
-import LinearGradient from "react-native-linear-gradient";
-import {addHostToPath, getImageMaxSize, translate} from "../../utils";
-import Styles from "../../constants/Styles";
-import {AnimatedCircularProgress} from "react-native-circular-progress";
-import Colors from "../../constants/Colors";
-import Fonts from "../../constants/Fonts";
-import Icons from "../Icons";
-import FastImage from "react-native-fast-image";
-
-const ITEM_BG = '#0d2b2d';
-const ITEM_GRAD_1 = '#173655';
-const ITEM_GRAD_2 = '#41202a';
+import {inject, observer} from 'mobx-react';
+import {COLORS, getPercent} from '../../actions/courses';
+import LinearGradient from 'react-native-linear-gradient';
+import RadialGradient from 'react-native-radial-gradient';
+import {addHostToPath, getImageMaxSize, translate} from '../../utils';
+import Styles from '../../constants/Styles';
+import Colors from '../../constants/Colors';
+import Fonts from '../../constants/Fonts';
+import Icons from '../Icons';
+import FastImage from 'react-native-fast-image';
+import Progress from '../Progress';
+import StarBgIcons from '../Icons/StarBgIcons';
 
 @inject('userStore')
 @observer
 class CourseHead extends Component {
-  @observable image = null;
-  @action init = () => {
-    let idx = this.props.index % 5;
-    if (idx === 0) this.image = [x_b_1, x_gr_1];
-    else if (idx === 1) this.image = [x_b_2, x_gr_2];
-    else if (idx === 2) this.image = [x_b_3, x_gr_3];
-    else if (idx === 3) this.image = [x_b_4, x_gr_4];
-    else if (idx === 4) this.image = [x_b_5, x_gr_5];
-    else this.image = [x_b_1, x_gr_1];
-  };
-
-  componentDidMount() {
-    this.init();
-  }
 
   render() {
-    const {data, index, handleBack, progress, courseRouting, userStore} = this.props;
-    const color = getColor(index);
+    const {data, index, handleBack, progress, soon} = this.props;
+    const hasAnyLabel = soon || data?.free;
+    const color = hasAnyLabel ? Colors.secondColor : COLORS[index % (COLORS.length - 1)]
     const percent = getPercent(progress.all, progress?.done);
-    // if (data?.type !== 'direction') return null;
     return (
       <View style={styles.container}>
-        <LinearGradient
-          style={[styles.item, styles.shadow, {shadowColor: color}]}
-          start={{x: 1, y: 0.13}} end={{x: 0.5, y: 1.4}}
-          locations={[0, 0.2, 1]}
-          colors={[index % 2 ? ITEM_GRAD_2 : ITEM_GRAD_1, ITEM_BG, ITEM_BG]}
-        >
+        <View style={styles.item}>
+          <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -100, left: -100, opacity: 0.5}}
+                          colors={['#7459FF', Colors.second_bg, Colors.second_bg, Colors.second_bg]}
+                          stops={[0.1, 0.4, 0.3, 0.75]}
+                          center={[100, 100]}
+                          radius={600} />
           {data?.parent?.bg_img
             ?
             <View style={[styles.image]}>
@@ -66,7 +39,7 @@ class CourseHead extends Component {
                 style={[getImageMaxSize(data?.parent?.bg_img?.image_width, data?.parent?.bg_img?.image_height, 250)]}
               />
               <LinearGradient style={styles.image_hide} colors={['#0d2b2d00', '#0d2b2d90', '#0d2b2d']}
-                              start={{x: 0.0, y: 0.6}} end={{x: 0, y: 1}}/>
+                              start={{x: 0.0, y: 0.6}} end={{x: 0, y: 1}} />
             </View>
             : null
           }
@@ -77,47 +50,43 @@ class CourseHead extends Component {
               </View>
             </TouchableOpacity>
           </View>
-          <View style={{width: '100%', height: '100%', padding: 24, paddingTop: 0, justifyContent: 'space-between'}}>
-            {this.image
-              ?
-              <View style={styles.x_wrap}>
-                <FastImage source={this.image[0]} style={styles.x_b}/>
-                <FastImage source={this.image[1]} style={styles.x_gr}/>
-              </View>
-              :
-              null
-            }
-            <View style={{height: Platform.OS === 'ios' ? 255 : 275, justifyContent: 'flex-end', paddingBottom: 24}}>
-              <View style={styles.progress}>
-                <View style={styles.progress_circle}/>
-                <Text style={[Styles.item_title, styles.progress_text]}>{percent}%</Text>
-                <AnimatedCircularProgress
-                  size={68}
-                  width={4}
-                  fill={percent}
-                  rotation={180}
-                  duration={0}
-                  arcSweepAngle={360}
-                  tintColor={Colors.tintColor}
-                  backgroundColor="#ffffff00"
-                />
-              </View>
-              {/*<CardLogo size={68} image={data?.image} icon={'home'} icon_size={36} bgc={Colors.item_bg} round/>*/}
-              <Text style={[Styles.title, styles.title]} ellipsizeMode='tail' numberOfLines={3}>{data?.name}</Text>
-              {!userStore.user?.user_products?.includes(data?.root) && data?.has_poll
-                ?
-                <TouchableOpacity onPress={() => courseRouting(null, true)}>
-                  <View style={styles.buy_product}>
-                    <Text style={[Styles.text, {fontFamily: Fonts.medium, paddingRight: 4}]}>{translate('TRAINER_TEAM_START')}</Text>
-                    {Icons.arrow_right(20, '#fff')}
+          <View style={{width: '100%', height: '100%', paddingTop: 0, justifyContent: 'space-between'}}>
+            <View style={{height: (Platform.OS === 'ios' ? 255 : 275) + 40, justifyContent: 'flex-end'}}>
+              <View>
+                <View style={[styles.logo, {backgroundColor: color}]}>{Icons.logo()}</View>
+                <View style={styles.person}>
+                  <View style={{position: 'absolute'}}>
+                    {StarBgIcons.border(152)}
                   </View>
-                </TouchableOpacity>
-                :
-                null
-              }
+                  {data?.author ? <Text style={[Styles.title_20, {lineHeight: 20, textAlign: 'center'}]}
+                                        numberOfLines={2}>{data.author}</Text> : null}
+                  {data?.discipline ? <Text style={[Styles.text, {textAlign: 'center', fontFamily: Fonts.light}]}
+                                            numberOfLines={1}>{data.discipline}</Text> : null}
+                </View>
+              </View>
+              <View style={{backgroundColor: color, paddingHorizontal: 24, paddingBottom: 36, paddingTop: 16}}>
+                {hasAnyLabel
+                  ?
+                  <View style={{position: 'absolute', right: 16, top: 0, width: 152, alignItems: 'center'}}>
+                    {StarBgIcons.filledBig(data.free ? Colors.tintColor : Colors.yellow)}
+                    {data.free
+                      ?
+                      <Text style={[Styles.text, styles.promoText]}>{translate('Free')}</Text>
+                      :
+                      <Text
+                        style={[Styles.text, styles.promoText, {color: Colors.second_bg,}]}>{translate('Soon')}</Text>
+                    }
+                  </View>
+                  :
+                  null
+                }
+
+                <Text style={[Styles.title, styles.title]} ellipsizeMode="tail" numberOfLines={3}>{data?.name}</Text>
+                <Progress progress={percent} width={'100%'} height={2} title />
+              </View>
             </View>
           </View>
-        </LinearGradient>
+        </View>
       </View>
     );
   }
@@ -125,12 +94,33 @@ class CourseHead extends Component {
 
 const styles = StyleSheet.create({
   container: {
-
-    backgroundColor: 'red',
     justifyContent: 'flex-start',
     alignItems: 'center',
     overflow: 'hidden',
     height: 370
+  },
+  promoText: {
+    fontFamily: Fonts.regular,
+    fontWeight: 'bold',
+    position: 'absolute',
+    paddingTop: 8,
+  },
+  person: {
+    width: 152,
+    position: 'absolute',
+    right: 16, bottom: -52,
+    paddingBottom: 62,
+    justifyContent: 'flex-end',
+    alignItems: 'center',
+  },
+  logo: {
+    marginHorizontal: 24,
+    marginVertical: 16,
+    height: 48,
+    width: 48,
+    borderRadius: 96,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   header: {
     marginTop: Platform.OS === 'ios' ? 20 : 0,
@@ -202,15 +192,13 @@ const styles = StyleSheet.create({
   item: {
     position: 'relative',
     width: '100%',
-    backgroundColor: '#0d2b2d',
+    backgroundColor: Colors.second_bg,
     // overflow: 'hidden',
   },
   image: {
     alignSelf: 'center',
     position: 'absolute',
     top: 8,
-    right: 8,
-    // opacity: 0.32
   },
   image_hide: {
     position: 'absolute',
@@ -220,10 +208,12 @@ const styles = StyleSheet.create({
     left: 0
   },
   title: {
-    // paddingTop: 24,
+    marginRight: 100,
     color: '#fff',
-    fontSize: 24,
+    fontSize: 28,
+    fontWeight: 'bold',
     lineHeight: 28,
+    paddingBottom: 8,
   },
   footer: {
     flex: 0,

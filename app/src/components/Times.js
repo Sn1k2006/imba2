@@ -15,11 +15,11 @@ const Timer = ({timestamp, title = translate('OPENS_IN')}) => {
   if(seconds < 10) seconds = '0' + seconds;
   return (
     <View style={styles.container}>
-      <Text style={[Styles.input, {fontFamily: Fonts.medium, color: '#FFDD00', paddingRight: 12}]}>{title}</Text>
+      <Text style={[Styles.input, {fontFamily: Fonts.medium, color: '#FCEB55', paddingRight: 12}]}>{title}</Text>
       {timestamp === 'loading'
           ?
         <View style={{height: 32, width: 32}}>
-          <Spinner color={'#FFDD00'} style={{top: -24}}/>
+          <Spinner color={'#FCEB55'} style={{top: -24}}/>
         </View>
           :
         (timestamp || timestamp === 0) && timestamp >= 0

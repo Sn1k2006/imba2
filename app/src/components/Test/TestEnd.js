@@ -90,7 +90,7 @@ class TestEnd extends Component {
                   hitSlop={{top: 15, bottom: 15, left: 15, right: 15}}>
                   <ShadowView style={[Styles.shadow, styles.about_test, this.getAchieve() ? {} : styles.disable_achive]}>
                     <View>
-                    {Icons.achiv(32, '#FFDD00')}
+                    {Icons.achiv(32, '#FCEB55')}
                     </View>
                   </ShadowView>
                 </TouchableWithoutFeedback>

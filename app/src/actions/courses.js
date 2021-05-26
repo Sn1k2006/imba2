@@ -1,9 +1,8 @@
 import {api} from "../utils";
 import Colors from '../constants/Colors';
-
-export const COLORS = ['#FFDD00', '#FC2A52', Colors.tintColor, '#FF9533', '#7459FF'];
-export const COLORS_1 = ['#D7BC0C', '#DA193E', '#0BAD5C', '#D27E31', '#634ED4'];
-export const COLORS_2 = ['rgba(255, 221, 0, 0.64)', '#FC2A52', 'rgba(3, 199, 102, 0.64)', 'rgba(255, 149, 51, 0.64)', 'rgba(116, 89, 255, 0.64)'];
+export const COLORS = [Colors.secondColor, '#0EBC7C', '#FC5575', '#FF9533', '#7459FF'];
+export const COLORS_1 = ['#D1C02A', '#D32C4C', '#0EBC7C', '#D27E31', '#634ED4'];
+export const COLORS_2 = ['rgba(255, 221, 0, 0.64)', '#FC5575', 'rgba(3, 199, 102, 0.64)', 'rgba(255, 149, 51, 0.64)', 'rgba(116, 89, 255, 0.64)'];
 
 export const getCoursesList = async (page = 1, done = null) => {
   try {

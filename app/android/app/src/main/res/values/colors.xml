@@ -1,7 +1,7 @@
 <resources>
     <!-- We'll use 'background' name to reference this color -->
     <!-- Replace #HEX_VALUE with Your color -->
-    <color name="background">#181B20</color>
+    <color name="background">#021734</color>
     <color name="splashscreen_bg">#152C4A</color>
     <color name="navigationBar">#152C4A</color>
 </resources>

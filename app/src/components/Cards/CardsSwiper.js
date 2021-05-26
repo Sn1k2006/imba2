@@ -68,6 +68,7 @@ class CardsSwiper extends Component {
           dotStyle={{
             width: 32,
             height: 6,
+            borderRadius: 0,
             backgroundColor: Colors.tintColor,
           }}
           inactiveDotStyle={{

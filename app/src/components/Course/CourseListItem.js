@@ -25,7 +25,7 @@ class CourseListItem extends Component {
     const {task} = this.props.data;
     if(task) {
       if(task.status === 'check') return 'rgba(255, 221, 0, 0.64)'
-      else if(task.status === 'rework') return '#FC2A52'
+      else if(task.status === 'rework') return '#FC5575'
       if(task.status === 'accepted') return '#03C766'
     }
   };
@@ -112,8 +112,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     width: '100%',
-    // flexDirection: 'row',
-
   },
   item: {
     position: 'relative',
@@ -129,7 +127,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.item_bg,
   },
   item_timer: {
-    borderColor: '#FFDD00',
+    borderColor: '#FCEB55',
     borderWidth: 1
   }
 });

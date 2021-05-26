@@ -1,16 +1,16 @@
 import React, {Component} from 'react';
-import {Keyboard, Platform, ScrollView, StatusBar, StyleSheet} from 'react-native';
+import {Keyboard, SafeAreaView, ScrollView, StatusBar, StyleSheet} from 'react-native';
 import {View, Button, Container} from 'native-base';
-import Icons from "../../components/Icons";
-import {inject, observer} from "mobx-react";
-import AuthContainer from "../../containers/Auth/AuthContainer";
-import RegisterContainer from "../../containers/Auth/RegisterContainer";
-import {toast, translate} from "../../utils/index";
-import BgGradient from "../../components/BgGradient";
-import Colors from "../../constants/Colors";
-import Layout from "../../constants/Layout";
-import CustomTabs from "../../components/elements/CustomTabs";
+import Icons from '../../components/Icons';
+import {inject, observer} from 'mobx-react';
+import AuthContainer from '../../containers/Auth/AuthContainer';
+import RegisterContainer from '../../containers/Auth/RegisterContainer';
+import {toast, translate} from '../../utils/index';
+import Colors from '../../constants/Colors';
+import Layout from '../../constants/Layout';
+import CustomTabs from '../../components/elements/CustomTabs';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view'
+import RadialGradient from 'react-native-radial-gradient';
 
 @inject('userStore')
 @observer
@@ -74,37 +74,48 @@ class LoginScreen extends Component {
   render() {
     return (
       <Container style={styles.container}>
-        <StatusBar barStyle="light-content" translucent={false} hidden={false} backgroundColor={Colors.second_bg}/>
-        {/*<MyStatusBar backgroundColor={Colors.second_bg}/>*/}
-        <BgGradient bg_img blur dark/>
-        <View style={styles.header}>
-          <Button onPress={this.route} style={styles.back_btn} transparent>{Icons.back_btn(32)}</Button>
-        </View>
-        <CustomTabs tabs={[translate('Login'), translate('Registration')]}
-                    onPress={(i) => this.changeTab(i)}
-                    active_idx={this.state.tab}/>
-        <KeyboardAwareScrollView
-          style={{flex: 1}}
-          contentContainerStyle={{flex: 1}}
-          extraHeight={160}
-          bounces={false}>
-          <ScrollView
-            style={{opacity: this.state.loading ? 0 : 1}}
-            ref={(scroll) => this._scroll = scroll}
-            horizontal
-            decelerationRate={'fast'}
-            scrollEventThrottle={1}
-            centerContent
-            pagingEnabled={true}
-            snapToInterval={Layout.window.width}
-            onMomentumScrollEnd={this.onScrollEndDrag}
-            showsHorizontalScrollIndicator={false}
-            // keyboardShouldPersistTaps={'always'}
-          >
-            <AuthContainer socialSubmit={this.handleSocialClick} loading={this.state.btn_loading}/>
-            <RegisterContainer socialSubmit={this.handleSocialClick} loading={this.state.btn_loading}/>
-          </ScrollView>
-        </KeyboardAwareScrollView>
+        <StatusBar translucent={true} hidden={false} backgroundColor={'transparent'} />
+        <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
+                        colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                        stops={[0.1, 0.4, 0.3, 0.75]}
+                        center={[300, 300]}
+                        radius={600} />
+        <RadialGradient
+          style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
+          colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+          stops={[0.1, 0.4, 0.3, 0.75]}
+          center={[300, 300]}
+          radius={600} />
+        <SafeAreaView style={{flex: 1}}>
+          <View style={styles.header}>
+            <Button onPress={this.route} style={styles.back_btn} transparent>{Icons.back_btn(32)}</Button>
+          </View>
+          <CustomTabs tabs={[translate('Login'), translate('Registration')]}
+                      onPress={(i) => this.changeTab(i)}
+                      active_idx={this.state.tab} />
+          <KeyboardAwareScrollView
+            style={{flex: 1}}
+            contentContainerStyle={{flex: 1}}
+            extraHeight={160}
+            bounces={false}>
+            <ScrollView
+              style={{opacity: this.state.loading ? 0 : 1}}
+              ref={(scroll) => this._scroll = scroll}
+              horizontal
+              decelerationRate={'fast'}
+              scrollEventThrottle={1}
+              centerContent
+              pagingEnabled={true}
+              snapToInterval={Layout.window.width}
+              onMomentumScrollEnd={this.onScrollEndDrag}
+              showsHorizontalScrollIndicator={false}
+              // keyboardShouldPersistTaps={'always'}
+            >
+              <AuthContainer socialSubmit={this.handleSocialClick} loading={this.state.btn_loading} />
+              <RegisterContainer socialSubmit={this.handleSocialClick} loading={this.state.btn_loading} />
+            </ScrollView>
+          </KeyboardAwareScrollView>
+        </SafeAreaView>
       </Container>
     );
   }
@@ -112,7 +123,7 @@ class LoginScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === 'ios' ? 20 : 0,
+    paddingTop: 20,
     height: '100%',
     flex: 1,
     backgroundColor: Colors.bg

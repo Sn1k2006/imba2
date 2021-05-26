@@ -18,7 +18,7 @@ const Avatar = ({progress = null, small = false, image, edit, size = 128, icon_s
 
   const borderRadius = (size * 2) || 0;
   return (
-    <ShadowView style={[Styles.shadow, styles.shadow, {borderRadius, width: size, height: size}]}>
+    <View style={[styles.shadow, {borderRadius, width: size, height: size}]}>
       <LinearGradient style={{borderRadius}} colors={[ Colors.second_bg, Colors.bg]}>
       <View style={[styles.container, {padding: progress !== null ? 6 : 0}]}>
         {progress !== null
@@ -32,7 +32,7 @@ const Avatar = ({progress = null, small = false, image, edit, size = 128, icon_s
               duration={0}
               arcSweepAngle={360}
               tintColor={Colors.tintColor}
-              backgroundColor="#383b3f"
+              backgroundColor={Colors.bg}
             />
           </View>
           :
@@ -69,7 +69,7 @@ const Avatar = ({progress = null, small = false, image, edit, size = 128, icon_s
         null
       }
 
-    </ShadowView>
+    </View>
   );
 }
 

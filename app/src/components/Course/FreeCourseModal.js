@@ -97,7 +97,7 @@ const styles = StyleSheet.create({
   },
   period: {
     paddingTop: 8,
-    color: '#FFDD00'
+    color: '#FCEB55'
   }
 });
 

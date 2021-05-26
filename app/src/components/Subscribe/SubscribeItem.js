@@ -40,7 +40,7 @@ const SubscribeItem = ({data, onClick, active, root_name = ''}) => {
             ?
             <View style={styles.gradient}>
               <LinearGradient style={{width: '100%', height: '100%'}}
-                              colors={['#7459FF', '#FC2A52']} start={{x: 0.0, y: 0}} end={{x: 0.5, y: 1}}/>
+                              colors={['#7459FF', '#FC5575']} start={{x: 0.0, y: 0}} end={{x: 0.5, y: 1}}/>
             </View>
             :
             null

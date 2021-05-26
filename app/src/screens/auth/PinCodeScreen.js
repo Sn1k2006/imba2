@@ -1,26 +1,39 @@
 import React, {Component} from 'react';
-import {Platform, StatusBar, StyleSheet} from 'react-native';
+import {Platform, StatusBar, SafeAreaView, StyleSheet} from 'react-native';
 import {View, Container, Button, Content} from 'native-base';
-import Icons from "../../components/Icons";
-import PinCodeContainer from "../../containers/Auth/PinCodeContainer";
-import BgGradient from "../../components/BgGradient";
-import Colors from "../../constants/Colors";
+import Icons from '../../components/Icons';
+import PinCodeContainer from '../../containers/Auth/PinCodeContainer';
+import Colors from '../../constants/Colors';
+import RadialGradient from 'react-native-radial-gradient';
 
 class PinCodeScreen extends Component {
   route = () => {
     this.props.navigation.goBack();
   };
-  render(){
+
+  render() {
     return (
-      <Container  style={styles.container}>
-        <StatusBar barStyle="light-content" translucent={false} hidden={false} backgroundColor={Colors.second_bg}/>
-        <BgGradient bg_img blur dark/>
-        <View style={styles.header}>
-          <Button onPress={this.route} style={styles.back_btn} transparent>{Icons.back_btn(32)}</Button>
-        </View>
-        <Content>
-          <PinCodeContainer/>
-        </Content>
+      <Container style={styles.container}>
+        <StatusBar translucent={true} hidden={false} backgroundColor={'transparent'} />
+        <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
+                        colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                        stops={[0.1, 0.4, 0.3, 0.75]}
+                        center={[300, 300]}
+                        radius={600} />
+        <RadialGradient
+          style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
+          colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+          stops={[0.1, 0.4, 0.3, 0.75]}
+          center={[300, 300]}
+          radius={600} />
+        <SafeAreaView style={{flex: 1}}>
+          <View style={styles.header}>
+            <Button onPress={this.route} style={styles.back_btn} transparent>{Icons.back_btn(32)}</Button>
+          </View>
+          <Content>
+            <PinCodeContainer />
+          </Content>
+        </SafeAreaView>
       </Container>
     );
   }
@@ -28,7 +41,7 @@ class PinCodeScreen extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    paddingTop: Platform.OS === 'ios' ? 20 : 0,
+    paddingTop: 20,
     height: '100%',
     flex: 1,
     backgroundColor: Colors.bg
