@@ -68,7 +68,7 @@ const styles = StyleSheet.create({
   soc_item: {
     width: 56,
     height: 56,
-    borderRadius: 112,
+    // borderRadius: 112,
     borderWidth: 1,
     borderColor: Colors.border,
     alignItems: 'center',

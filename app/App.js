@@ -109,8 +109,8 @@ class App extends Component {
             AppStore.ready
               ?
               <View style={styles.container} forceInset={{top: 'always', bottom: 'always'}}>
-                <StatusBar barStyle="light-content" translucent={false} hidden={false}
-                           backgroundColor={Colors.bg}/>
+                {/*<StatusBar barStyle="light-content" translucent={false} hidden={false}*/}
+                {/*           backgroundColor={Colors.bg}/>*/}
                 {AppStore.is_auth
                   ?
                   <AppNavigator ref="content"/>

@@ -14,7 +14,7 @@ export default {
   item_text: '#ffffff50',
   text: '#ffffff',
   text_muted: '#ffffff64',
-  border: '#505054',
+  border: '#8d96a4',
   statusBar: '#ffffff00',
   disable_bg: '#2C3036',
   shadow: '#021734',

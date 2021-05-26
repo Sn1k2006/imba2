@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {SafeAreaView, StyleSheet,StatusBar} from 'react-native';
+import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
 import {View, Text} from 'native-base';
 import Colors from '../../constants/Colors';
 import CustomBtn from '../../components/elements/CustomBtn';
@@ -22,6 +22,7 @@ class HomeAuthScreen extends Component {
   };
 
   async componentDidMount() {
+    StatusBar.setTranslucent(true);
     if (!this.props.userStore.user?.auth_type) {
       setTimeout(FBLogout, 2000);
       await signOutGoogle();
@@ -32,42 +33,45 @@ class HomeAuthScreen extends Component {
   render() {
     const {app_info = {}} = this.props.appStore;
     return (
-      <SafeAreaView style={[styles.container]}>
-        {/*<StatusBar barStyle="light-content" translucent={false} hidden={false} backgroundColor={'transparent'}/>*/}
-        <StatusBar translucent={true} hidden={false} backgroundColor={'transparent'} />
-        <View style={styles.content}>
-          <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
-                          colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
-                          stops={[0.1, 0.4, 0.3, 0.75]}
-                          center={[300, 300]}
-                          radius={600} />
-          <FastImage source={logo} style={styles.logo} />
-          <View style={{flex: 1,  height: '100%', width: '100%'}}>
-            <View style={styles.bgWrap}>
-              <FastImage source={homeMan} style={{width: '100%', height: '100%', right: 90}}
-                         resizeMode={FastImage.resizeMode.contain} />
-              <LinearGradient
-                style={{flex: 1, position: 'absolute', bottom: 0, left: 0, width: '100%', height: 250,}}
-                locations={[0, 0.8, 1]}
-                colors={[Colors.bg + '00', Colors.bg, Colors.bg]} />
+      <View style={[styles.container]}>
+        <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
+                        colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                        stops={[0.1, 0.4, 0.3, 0.75]}
+                        center={[300, 300]}
+                        radius={600} />
+        <SafeAreaView style={{flex: 1}}>
+          {/*<StatusBar barStyle="light-content" translucent={false} hidden={false} backgroundColor={'transparent'}/>*/}
+          <StatusBar translucent={true} hidden={false} backgroundColor={'transparent'} />
+          <View style={styles.content}>
+
+            <FastImage source={logo} style={styles.logo} />
+            <View style={{flex: 1, height: '100%', width: '100%'}}>
+              <View style={styles.bgWrap}>
+                <FastImage source={homeMan} style={{width: '100%', height: '100%', right: 120}}
+                           resizeMode={FastImage.resizeMode.contain} />
+                <LinearGradient
+                  style={{flex: 1, position: 'absolute', bottom: 0, left: 0, width: '100%', height: 250,}}
+                  locations={[0, 0.8, 1]}
+                  colors={[Colors.bg + '00', Colors.bg, Colors.bg]} />
+              </View>
             </View>
           </View>
-        </View>
-        <View style={styles.btn_wrap}>
-          {/*<Text style={[Styles.text, styles.app_desc]}>{app_info?.description}</Text>*/}
-          <CustomBtn title={translate('Enter')} width={200} onPress={this.route('Login', 'login')}
-                     wrap_style={styles.btn_wrap} />
-          <CustomBtn title={translate('Registration')} width={200} type={'outline'}
-                     onPress={this.route('Login', 'register')}
-                     wrap_style={styles.btn_wrap} />
-        </View>
-        <RadialGradient
-          style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
-          colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
-          stops={[0.1, 0.4, 0.3, 0.75]}
-          center={[300, 300]}
-          radius={600} />
-      </SafeAreaView>
+          <View style={styles.btn_wrap}>
+            {/*<Text style={[Styles.text, styles.app_desc]}>{app_info?.description}</Text>*/}
+            <CustomBtn title={translate('Enter')} width={200} onPress={this.route('Login', 'login')}
+                       wrap_style={styles.btn_wrap} />
+            <CustomBtn title={translate('Registration')} width={200} type={'outline'}
+                       onPress={this.route('Login', 'register')}
+                       wrap_style={styles.btn_wrap} />
+          </View>
+          <RadialGradient
+            style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
+            colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+            stops={[0.1, 0.4, 0.3, 0.75]}
+            center={[300, 300]}
+            radius={600} />
+        </SafeAreaView>
+      </View>
     );
   }
 }
@@ -83,8 +87,9 @@ const styles = StyleSheet.create({
     position: 'absolute',
     width: '140%',
     height: '140%',
-    maxWidth: 460,
-    maxHeight: 700,
+    maxWidth: 550,
+    maxHeight: 600,
+    alignItems: 'center',
     top: -60,
     justifyContent: 'flex-start',
   },
