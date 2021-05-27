@@ -18,7 +18,7 @@ import StarBgIcons from '../Icons/StarBgIcons';
 @observer
 class CourseHead extends Component {
   render() {
-    const {data, handleBack, progress, soon} = this.props;
+    const {data, handleBack, progress, soon, courseRouting, userStore} = this.props;
     const hasAnyLabel = soon || data?.free;
     const color = hasAnyLabel ? Colors.secondColor : COLORS[(data.order || 0) % (COLORS.length - 1)]
     const percent = getPercent(progress.all, progress?.done);
@@ -81,6 +81,17 @@ class CourseHead extends Component {
                 }
                 <Text style={[Styles.title, styles.title]} ellipsizeMode="tail" numberOfLines={3}>{data?.name}</Text>
                 <Progress progress={percent} width={'100%'} height={2} title />
+                {!userStore.user?.user_products?.includes(data?.root) && data?.has_poll
+                  ?
+                  <TouchableOpacity onPress={() => courseRouting(null, true)}>
+                    <View style={styles.buy_product}>
+                      <Text style={[Styles.text, {fontFamily: Fonts.medium, paddingRight: 4}]}>{translate('TRAINER_TEAM_START')}</Text>
+                      {Icons.arrow_right(20, '#fff')}
+                    </View>
+                  </TouchableOpacity>
+                  :
+                  null
+                }
               </View>
             </View>
           </View>
