@@ -53,9 +53,7 @@ class CustomModal extends Component {
         onRequestClose={onClose}
       >
         <Root>
-
           <ScrollView contentContainerStyle={{flexGrow: 1}} keyboardShouldPersistTaps={'always'} alwaysBounceVertical={false}>
-
             <View style={{flex: 1, height: '100%'}}>
 
               <TouchableWithoutFeedback onPress={onClose}>
@@ -136,7 +134,7 @@ const styles = StyleSheet.create({
     paddingTop: 40,
     paddingHorizontal: 32,
     paddingBottom: 24,
-    backgroundColor: '#2D3035',
+    backgroundColor: Colors.second_bg,
     overflow: 'hidden',
     position: 'relative',
     width: 295,

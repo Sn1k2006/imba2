@@ -190,7 +190,6 @@ class ProfileEditModal extends React.Component {
           left_icon_size={this.new_password ? 32 : 30}
           gradient
           leftIconClick={this.new_password ? this.toggle(false) : this.showAcceptModal}>
-
           <View style={styles.container}>
             <Avatar image={user?.avatar} progress={0} edit={this.showActionSheet}/>
           </View>
@@ -250,7 +249,7 @@ class ProfileEditModal extends React.Component {
       </>
     );
   }
-};
+}
 
 const styles = StyleSheet.create({
   name: {

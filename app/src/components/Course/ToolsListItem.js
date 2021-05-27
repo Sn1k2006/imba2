@@ -1,7 +1,6 @@
 import React from 'react';
 import {StyleSheet, TouchableOpacity} from 'react-native';
 import {View, Text} from 'native-base';
-import ShadowView from 'react-native-simple-shadow-view'
 import Styles from "../../constants/Styles";
 import Colors from "../../constants/Colors";
 import Icons from "../Icons";
@@ -20,7 +19,6 @@ const ToolsListItem = ({data, onPress}) => {
   const {links = []} = res;
   return (
     <TouchableOpacity onPress={onPress(data)}>
-      <ShadowView style={styles.shadow}>
         <View style={styles.container}>
           <View style={styles.logo}>{Icons.tools(32, links.length ? '#fff' : Colors.thirdColor)}</View>
           <View style={styles.info}>
@@ -31,37 +29,27 @@ const ToolsListItem = ({data, onPress}) => {
               <Text style={[styles.link]} numberOfLines={1} ellipsizeMode='tail'>{res.links[0].link}</Text> : null}
           </View>
         </View>
-      </ShadowView>
     </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  shadow: {
-    shadowColor: Colors.second_bg,
-
-    shadowOpacity: 1,
-    shadowRadius: 5,
-    shadowOffset: {width: 0, height: 0},
-    backgroundColor: '#33363A',
-    // marginVertical: 12,
+  container: {
     marginBottom: 24,
     marginHorizontal: 16,
-  },
-  container: {
     flex: 1,
     height: 80,
-    backgroundColor: '#33363A',
+    backgroundColor: Colors.item_bg,
     paddingHorizontal: 24,
     justifyContent: 'flex-start',
     flexDirection: 'row',
-    alignItems: 'center'
+    alignItems: 'center',
   },
   sub_title: {
     paddingBottom: 8,
   },
   logo: {
-    backgroundColor: '#292C31',
+    backgroundColor: Colors.item_bg,
     width: 48,
     height: 48,
     justifyContent: 'center',

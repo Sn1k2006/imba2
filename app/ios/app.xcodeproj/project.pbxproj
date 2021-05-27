@@ -37,6 +37,7 @@
 		7B60560A9E6143D080F6A193 /* EvilIcons.ttf in Resources */ = {isa = PBXBuildFile; fileRef = F6D0346981DE4EACB02AD57F /* EvilIcons.ttf */; };
 		8D2E3FA5265BA8E50084EE70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2E3FA3265BA8E50084EE70 /* LaunchScreen.storyboard */; };
 		8D2E3FA6265BA8E50084EE70 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D2E3FA3265BA8E50084EE70 /* LaunchScreen.storyboard */; };
+		8D8E9FD6265FBAB90033AD11 /* Roboto-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D8E9FD4265FBAB90033AD11 /* Roboto-Light.ttf */; };
 		8DB5C3682657D0CB003343B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DB5C3672657D0CB003343B1 /* GoogleService-Info.plist */; };
 		8DB5C3692657D0CB003343B1 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8DB5C3672657D0CB003343B1 /* GoogleService-Info.plist */; };
 		9A462CF681A0459BBABC518D /* Fontisto.ttf in Resources */ = {isa = PBXBuildFile; fileRef = BC52AD88C9154F619B7C4CDF /* Fontisto.ttf */; };
@@ -75,7 +76,7 @@
 
 /* Begin PBXFileReference section */
 		000FA7FB7E182CE463D7DECD /* Pods-app.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app.release.xcconfig"; path = "Target Support Files/Pods-app/Pods-app.release.xcconfig"; sourceTree = "<group>"; };
-		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file; path = main.jsbundle; sourceTree = "<group>"; };
+		008F07F21AC5B25A0029DE68 /* main.jsbundle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = main.jsbundle; sourceTree = "<group>"; };
 		00E356EE1AD99517003FC87E /* appTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = appTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* appTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = appTests.m; sourceTree = "<group>"; };
@@ -116,6 +117,7 @@
 		80CC1E2BD35BB56C316094AE /* Pods-app-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-app-tvOSTests/Pods-app-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8B8BCF5C3D6097AD0014C400 /* libPods-app.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-app.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D2E3FA3265BA8E50084EE70 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = app/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8D8E9FD4265FBAB90033AD11 /* Roboto-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Light.ttf"; sourceTree = "<group>"; };
 		8DB5C3672657D0CB003343B1 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "GoogleService-Info.plist"; path = "app/GoogleService-Info.plist"; sourceTree = "<group>"; };
 		95513048C74E378D8C3877C0 /* Pods-app-tvOSTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-app-tvOSTests.release.xcconfig"; path = "Target Support Files/Pods-app-tvOSTests/Pods-app-tvOSTests.release.xcconfig"; sourceTree = "<group>"; };
 		A72BBA2872FC44B1A0203C33 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
@@ -247,6 +249,7 @@
 		5527E4522423C9E1002020E2 /* fonts */ = {
 			isa = PBXGroup;
 			children = (
+				8D8E9FD4265FBAB90033AD11 /* Roboto-Light.ttf */,
 				55BD967D2431F0960035CBC7 /* Roboto-Bold.ttf */,
 				55A54D3D24249EB90071408C /* Roboto-Medium.ttf */,
 				5527E4542423C9E1002020E2 /* GothamPro.ttf */,
@@ -496,6 +499,7 @@
 				E66878C5EF1840749B4FB4D2 /* MaterialCommunityIcons.ttf in Resources */,
 				033E02FC526E4C01841D2DFF /* MaterialIcons.ttf in Resources */,
 				1E1672BE8D0F48D7A71C8A9F /* Octicons.ttf in Resources */,
+				8D8E9FD6265FBAB90033AD11 /* Roboto-Light.ttf in Resources */,
 				5527E4592423C9E1002020E2 /* GothamBold.ttf in Resources */,
 				2D3FCCB7362A4C9B86870B42 /* SimpleLineIcons.ttf in Resources */,
 				47120D3B877F49558A3046ED /* Zocial.ttf in Resources */,

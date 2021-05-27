@@ -6,7 +6,6 @@ import Styles from "../../constants/Styles";
 import Spinner from "../Spinner";
 import Icons from "../Icons";
 import {AnimatedCircularProgress} from "react-native-circular-progress";
-import ShadowView from "react-native-simple-shadow-view/src/ShadowView";
 
 const CustomBtn = ({
                      title = '',

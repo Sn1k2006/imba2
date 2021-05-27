@@ -51,7 +51,7 @@ class CourseHead extends Component {
           </View>
           <View style={{width: '100%', height: '100%', paddingTop: 0, justifyContent: 'space-between'}}>
             <View style={{height: (Platform.OS === 'ios' ? 255 : 275) + 40, justifyContent: 'flex-end'}}>
-              <View>
+              <View style={{zIndex: 1}}>
                 <View style={[styles.logo, {backgroundColor: color}]}>{Icons.logo()}</View>
                 <View style={styles.person}>
                   <View style={{position: 'absolute'}}>
@@ -85,8 +85,8 @@ class CourseHead extends Component {
                   ?
                   <TouchableOpacity onPress={() => courseRouting(null, true)}>
                     <View style={styles.buy_product}>
-                      <Text style={[Styles.text, {fontFamily: Fonts.medium, paddingRight: 4}]}>{translate('TRAINER_TEAM_START')}</Text>
-                      {Icons.arrow_right(20, '#fff')}
+                      <Text style={[Styles.text, {fontFamily: Fonts.medium, paddingRight: 4, color: Colors.second_bg}]}>{translate('TRAINER_TEAM_START')}</Text>
+                      {Icons.arrow_right(20, Colors.second_bg)}
                     </View>
                   </TouchableOpacity>
                   :
@@ -218,7 +218,7 @@ const styles = StyleSheet.create({
     left: 0
   },
   title: {
-    marginRight: 100,
+    marginRight: 120,
     color: '#fff',
     fontSize: 28,
     fontWeight: 'bold',
@@ -233,7 +233,7 @@ const styles = StyleSheet.create({
   },
   buy_product: {
     height: 24,
-    backgroundColor: '#FF9533',
+    backgroundColor: Colors.yellow,
     alignSelf: 'flex-start',
     paddingLeft: 24,
     marginTop: 16,
@@ -241,7 +241,6 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     paddingRight: 16,
-    borderTopRightRadius: Platform.OS === 'ios' ? 8 : 24,
   },
 
 });

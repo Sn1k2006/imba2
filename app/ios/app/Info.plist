@@ -66,10 +66,10 @@
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
-    <key>NSAllowsArbitraryLoadsInWebContent</key>
-    <true/>
-    <key>NSAllowsLocalNetworking</key>
-    <true/>
+		<key>NSAllowsArbitraryLoadsInWebContent</key>
+		<true/>
+		<key>NSAllowsLocalNetworking</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
 			<key>localhost</key>
@@ -86,7 +86,7 @@
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>This is required so that you can share photos and videos from your device's library</string>
 	<key>NSUserTrackingUsageDescription</key>
-	<string>track</string>
+	<string>Your data will be used to show you more personalized content.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>AntDesign.ttf</string>
@@ -107,6 +107,7 @@
 		<string>Zocial.ttf</string>
 		<string>Roboto-Medium.ttf</string>
 		<string>Roboto-Bold.ttf</string>
+		<string>Roboto-Light.ttf</string>
 	</array>
 	<key>UIBackgroundModes</key>
 	<array>

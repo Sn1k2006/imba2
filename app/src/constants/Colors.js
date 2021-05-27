@@ -16,6 +16,7 @@ export default {
   text_muted: '#ffffff64',
   border: '#8d96a4',
   statusBar: '#ffffff00',
-  disable_bg: '#2C3036',
+  disable_bg: 'rgba(255, 255, 255, 0.08)',
   shadow: '#021734',
+  modalBg: '#244B7E',
 };
