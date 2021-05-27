@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {SafeAreaView, StyleSheet, StatusBar} from 'react-native';
-import {View, Text} from 'native-base';
+import {View} from 'native-base';
 import Colors from '../../constants/Colors';
 import CustomBtn from '../../components/elements/CustomBtn';
 import {translate} from '../../utils';
@@ -29,9 +29,8 @@ class HomeAuthScreen extends Component {
     }
   }
 
-
   render() {
-    const {app_info = {}} = this.props.appStore;
+    // const {app_info = {}} = this.props.appStore;
     return (
       <View style={[styles.container]}>
         <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}

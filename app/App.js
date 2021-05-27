@@ -76,7 +76,6 @@ class App extends Component {
           );
         }
       }
-
       AppStore.connection = state.isConnected;
     });
   }
@@ -88,16 +87,14 @@ class App extends Component {
     StatusBar.setHidden(false, true);
     if(Platform.OS === 'android') {
       StatusBar.setBackgroundColor(Colors.bg);
-      NavigationBar.setColor(Colors.second_bg)
+      NavigationBar.setColor(Colors.second_bg);
     }
     SplashScreen.hide();
-
     await initTracking();
   };
 
   notificationClick = (remoteMessage) => {
     if (remoteMessage?.data?.data) {
-
     }
   };
 
