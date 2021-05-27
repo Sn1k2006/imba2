@@ -10,7 +10,6 @@ import Test from "../../components/Test/Test";
 import TestEnd from "../../components/Test/TestEnd";
 import {separateAchiveInTest} from "../../actions/achievements";
 import AchieveModal from "../../components/AchieveModal";
-import BgGradient from "../../components/BgGradient";
 import TestHeader from "../../components/Test/TestHeader";
 import RepeatImage from "../../components/RepeatImage";
 
@@ -145,7 +144,6 @@ class TestContainer extends Component {
     if (this.loading) return <Spinner page/>;
     return (
       <>
-        {this.test_results?.mark  || (this.data?.settings && this.data.settings?.test !== 'failed') ? <BgGradient top/> : null }
         {this.test_results?.mark === 10
           ?
           <View style={{

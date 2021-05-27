@@ -56,7 +56,6 @@ const Avatar = ({progress = null, small = false, image, edit, size = 128, icon_s
       </LinearGradient>
       {edit
         ?
-
         <View style={[Styles.shadow, styles.shadow_edit]}>
           <TouchableOpacity onPress={edit}>
             <View style={[styles.edit]}>
@@ -64,7 +63,6 @@ const Avatar = ({progress = null, small = false, image, edit, size = 128, icon_s
             </View>
           </TouchableOpacity>
         </View>
-
         :
         null
       }
@@ -85,7 +83,7 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.second_bg,
     position: 'relative',
     alignSelf: 'center',
-    overflow: Platform.OS === 'ios' ? 'visible' : 'hidden',
+    overflow:  'visible',
   },
   progress: {
     flex: 1,

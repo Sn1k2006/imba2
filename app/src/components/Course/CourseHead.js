@@ -64,7 +64,7 @@ class CourseHead extends Component {
                                             numberOfLines={1}>{data.discipline}</Text> : null}
                 </View>
               </View>
-              <View style={{backgroundColor: color, paddingHorizontal: 24, paddingBottom: 36, paddingTop: 16}}>
+              <View style={{backgroundColor: color, paddingHorizontal: 24, paddingBottom: 36, paddingTop: 16, zIndex: Number(hasAnyLabel)}}>
                 {hasAnyLabel
                   ?
                   <View style={{position: 'absolute', right: 16, top: 0, width: 152, alignItems: 'center'}}>
@@ -80,7 +80,6 @@ class CourseHead extends Component {
                   :
                   null
                 }
-
                 <Text style={[Styles.title, styles.title]} ellipsizeMode="tail" numberOfLines={3}>{data?.name}</Text>
                 <Progress progress={percent} width={'100%'} height={2} title />
               </View>
@@ -106,6 +105,7 @@ const styles = StyleSheet.create({
     paddingTop: 8,
   },
   person: {
+    zIndex: 1,
     width: 152,
     position: 'absolute',
     right: 16, bottom: -52,

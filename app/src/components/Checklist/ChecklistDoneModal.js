@@ -1,23 +1,24 @@
 import React from 'react';
-import {StyleSheet, Image} from 'react-native';
+import {StyleSheet} from 'react-native';
 import {View, Text} from 'native-base';
-import Styles from "../../constants/Styles";
-import CustomBtn from "../elements/CustomBtn";
-import ShadowView from "react-native-simple-shadow-view/src/ShadowView";
-import Icons from "../Icons";
+import Styles from '../../constants/Styles';
+import CustomBtn from '../elements/CustomBtn';
+import Icons from '../Icons';
 import confetti3 from '../../assets/images/confetti3.png';
-import FastImage from "react-native-fast-image";
+import FastImage from 'react-native-fast-image';
+import Colors from '../../constants/Colors';
 
 const ChecklistDoneModal = ({text, handleOk}) => {
   return (
-      <View style={styles.container}>
-        <FastImage source={confetti3} style={styles.image}/>
-        <ShadowView style={[Styles.shadow, styles.shadow]}>
-          {Icons.check_color()}
-        </ShadowView>
-        <Text style={[Styles.title_20, styles.text]}>{text}</Text>
-        <CustomBtn onPress={handleOk} width={52} icon={'chevron_right'} icon_size={32} btn_style={{paddingHorizontal: 0}}/>
+    <View style={styles.container}>
+      <FastImage source={confetti3} style={styles.image} />
+      <View style={[styles.shadow]}>
+        {Icons.check_color()}
       </View>
+      <Text style={[Styles.title_20, styles.text]}>{text}</Text>
+      <CustomBtn onPress={handleOk} width={52} icon={'chevron_right'} icon_size={32}
+                 btn_style={{paddingHorizontal: 0}} />
+    </View>
   );
 };
 
@@ -32,7 +33,7 @@ const styles = StyleSheet.create({
     paddingBottom: 24,
   },
   shadow: {
-    backgroundColor: '#2D3035',
+    backgroundColor: Colors.item_bg,
     width: 128,
     height: 128,
     justifyContent: 'center',

@@ -16,7 +16,6 @@ import Icons from "../Icons";
 import Styles from "../../constants/Styles";
 import CustomBtn from "./CustomBtn";
 import {translate} from "../../utils";
-import BgGradient from "../BgGradient";
 
 @observer
 class CustomModal extends Component {
@@ -64,7 +63,6 @@ class CustomModal extends Component {
 
                   <TouchableWithoutFeedback onPress={this.hideKeyboard}>
                     <View style={[styles.content, this.props.contentStyle || {}, accept ? {paddingTop: 24} : {}]}>
-                      {/*{gradient ?<BgGradient top/>:null}*/}
                       {right_icon && !accept
                         ?
 

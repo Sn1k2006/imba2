@@ -42,15 +42,14 @@ class HomeAuthScreen extends Component {
           {/*<StatusBar barStyle="light-content" translucent={false} hidden={false} backgroundColor={'transparent'}/>*/}
           <StatusBar translucent={true} hidden={false} backgroundColor={'transparent'} />
           <View style={styles.content}>
-
             <FastImage source={logo} style={styles.logo} />
             <View style={{flex: 1, height: '100%', width: '100%'}}>
               <View style={styles.bgWrap}>
-                <FastImage source={homeMan} style={{width: '100%', height: '100%', right: 120}}
+                <FastImage source={homeMan} style={{width: '170%', height: '170%', position: 'absolute'}}
                            resizeMode={FastImage.resizeMode.contain} />
                 <LinearGradient
-                  style={{flex: 1, position: 'absolute', bottom: 0, left: 0, width: '100%', height: 250,}}
-                  locations={[0, 0.8, 1]}
+                  style={{flex: 1, position: 'absolute', bottom: 0, left: 0, width: '100%', height: 150,}}
+                  locations={[0, 0.9, 1]}
                   colors={[Colors.bg + '00', Colors.bg, Colors.bg]} />
               </View>
             </View>
@@ -83,14 +82,15 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.bg
   },
   bgWrap: {
+    overflow: 'hidden',
     position: 'absolute',
-    width: '140%',
-    height: '140%',
+    width: '100%',
+    height: '100%',
     maxWidth: 550,
     maxHeight: 600,
     alignItems: 'center',
-    top: -60,
-    justifyContent: 'flex-start',
+    top: 0,
+    justifyContent: 'center',
   },
   logo: {
     width: 205,

@@ -49,13 +49,12 @@ const Header = ({title, children, subtitle, headerLeftClick, headerRightClick, r
             {progress
               ?
               <>
-                <View style={{width: '100%'}} onLayout={setWidth}>
+                <View style={{width: '100%', marginRight: 16,}} onLayout={setWidth}>
                   <Progress progress={getPercent(progress.all, progress.done)}
                             width={centerWidth}
                             color={Colors.tintColor} color2={'#FCEB55'}
                             unfilledColor={'#525559'}/>
                 </View>
-
               </>
               :
               <>

@@ -2,7 +2,6 @@ import React, {Component} from 'react';
 import {Platform, StatusBar, StyleSheet, SafeAreaView} from 'react-native';
 import {View, Text, Container, Button, Content} from 'native-base';
 import Icons from '../../components/Icons';
-import BgGradient from '../../components/BgGradient';
 import Colors from '../../constants/Colors';
 import DiscordContainer from '../../containers/Auth/DiscordContainer';
 import {FBLogout} from '../../actions/facebook';

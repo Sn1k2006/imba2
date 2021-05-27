@@ -1,14 +1,13 @@
 import React from 'react';
-import Header from "./Header";
-import {Container, Content, View,} from "native-base";
-import Footer from "./Footer";
-import {StyleSheet, RefreshControl, SafeAreaView, Platform} from "react-native";
-import Colors from "../constants/Colors";
-import Styles from "../constants/Styles";
-import {observer} from "mobx-react";
-import MyStatusBar from "./MyStatusbar";
-import LinearGradient from "react-native-linear-gradient";
-import BgGradient from "./BgGradient";
+import Header from './Header';
+import {Container, Content, View,} from 'native-base';
+import Footer from './Footer';
+import {StyleSheet, RefreshControl, SafeAreaView, Platform} from 'react-native';
+import Colors from '../constants/Colors';
+import Styles from '../constants/Styles';
+import {observer} from 'mobx-react';
+import MyStatusBar from './MyStatusbar';
+import LinearGradient from 'react-native-linear-gradient';
 import RadialGradient from 'react-native-radial-gradient';
 
 @observer
@@ -35,37 +34,46 @@ class Layout extends React.Component {
     return (
       <SafeAreaView style={[styles.container]}>
         {Platform.OS === 'ios' ?
-            <View style={{position: 'absolute', top: 0, zIndex: -1, left: 0, width: '100%', height: 70, backgroundColor: Colors.second_bg}}/>
-            :
-            null
+          <View style={{
+            position: 'absolute',
+            top: 0,
+            zIndex: -1,
+            left: 0,
+            width: '100%',
+            height: 70,
+            backgroundColor: Colors.second_bg
+          }} />
+          :
+          null
         }
         <Container style={[container_style]}>
-          {header && Platform.OS === 'ios' ? <Header {...headerProps}/> : null}
-          <LinearGradient style={styles.gradient} colors={[Colors.second_bg, Colors.bg]}>
-            {bg_gradient ? <BgGradient top/> : null }
+          {header && Platform.OS === 'ios' ? <Header {...headerProps} /> : null}
+          <LinearGradient style={styles.gradient} colors={[Colors.second_bg, Colors.bg]} locations={[0.2, 1]}>
             {Platform.OS === 'android'
               ?
-              <MyStatusBar translucent={true} hidden={false} backgroundColor={'transparent'}/>
+              <MyStatusBar translucent={true} hidden={false} backgroundColor={'transparent'} />
               :
               null
             }
-            {header && Platform.OS === 'android' ? <Header {...headerProps}/> : null}
+            {header && Platform.OS === 'android' ? <Header {...headerProps} /> : null}
             {radialGrad
-            ?
-            <>
-              <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
-                              colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
-                              stops={[0.1, 0.4, 0.3, 0.75]}
-                              center={[300, 300]}
-                              radius={600} />
-              <RadialGradient style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
-                              colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
-                              stops={[0.1, 0.4, 0.3, 0.75]}
-                              center={[300, 300]}
-                              radius={600} />
-            </>
-            :
-            null
+              ?
+              <>
+                <RadialGradient
+                  style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
+                  colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                  stops={[0.1, 0.4, 0.3, 0.75]}
+                  center={[300, 300]}
+                  radius={600} />
+                <RadialGradient
+                  style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
+                  colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                  stops={[0.1, 0.4, 0.3, 0.75]}
+                  center={[300, 300]}
+                  radius={600} />
+              </>
+              :
+              null
             }
 
             {noContent
@@ -93,18 +101,26 @@ class Layout extends React.Component {
               </Content>
             }
           </LinearGradient>
-          {footer ? <Footer active={active}/> : null}
+          {footer ? <Footer active={active} /> : null}
 
         </Container>
         {Platform.OS === 'ios' ?
-            <View style={{position: 'absolute', zIndex: -1, bottom: 0, left: 0, width: '100%', height: 70, backgroundColor: footer ? Colors.second_bg : Colors.bg}}/>
-            :
-            null
+          <View style={{
+            position: 'absolute',
+            zIndex: -1,
+            bottom: 0,
+            left: 0,
+            width: '100%',
+            height: 70,
+            backgroundColor: footer ? Colors.second_bg : Colors.bg
+          }} />
+          :
+          null
         }
       </SafeAreaView>
     );
   }
-};
+}
 
 const styles = StyleSheet.create({
   gradient: {
@@ -114,8 +130,6 @@ const styles = StyleSheet.create({
   },
   container: {
     flex: 1,
-    // marginTop: -20
-    // backgroundColor: 'red',
   },
 });
 

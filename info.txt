@@ -4,3 +4,21 @@ https://esports-masters.flycricket.io/privacy.html
 https://esports-masters.flycricket.io/terms.html
 
 keytool -list -v -alias alias_name -keystore ./my-release-key.keystore
+
+Gmail:
+martukovn8@gmail.com
+u$MFUD}Gwh*lmVe@O
+
+
+Facebook
+martukovn8@gmail.com
+u$MFUD}Gwh*lmVe@O
+
+AppsFlyer
+martukovn8@gmail.com
+u$MFUD}Gwh*lmVe@O1
+
+
+IOS
+martukovn8@gmail.com
+u$MFUD}Gwh*lmVe@O1
