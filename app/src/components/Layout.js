@@ -55,13 +55,13 @@ class Layout extends React.Component {
               :
               null
             }
-            {header && Platform.OS === 'android' ? <Header {...headerProps} /> : null}
             {radialGrad
-              ?
-            <RadialGradientLayout />
-              :
-              null
+                ?
+                <RadialGradientLayout />
+                :
+                null
             }
+            {header && Platform.OS === 'android' ? <Header {...headerProps} /> : null}
 
             {noContent
               ?

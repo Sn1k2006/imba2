@@ -23,6 +23,7 @@ import {getBundleId} from "react-native-device-info";
 import Colors from "../constants/Colors";
 import SubDescription from "../components/Subscribe/SubDescription";
 import {beginLearning, getCourse} from "../actions/courses";
+import RadialGradientLayout from "../components/RadialGradientLayout";
 
 
 @inject('appStore', 'userStore')
@@ -189,7 +190,7 @@ class SubscribeScreen extends Component {
   };
 
   landLink = (type) => () => {
-    const url = `https://lp.imbaesports.app/${type}`;
+    const url = `https://esports-masters.flycricket.io/${type}.html`;
     Linking.canOpenURL(url).then(supported => {
       if (supported) {
         Linking.openURL(url);
@@ -220,7 +221,8 @@ class SubscribeScreen extends Component {
   render() {
     const {hide_products, subscribed} = this.props.appStore;
     return (
-      <Layout
+        <>
+      <Layout 
         footer={false} header close content_style={{flexGrow: 1}}
         headerLeftClick={this.handleClose}
         right_icon={true}
@@ -281,7 +283,7 @@ class SubscribeScreen extends Component {
                     {Platform.OS === 'ios'
                       ?
                       <View style={{flexDirection: 'row', justifyContent: 'center', paddingTop: 16, flexWrap: 'wrap'}}>
-                        <TouchableOpacity onPress={this.landLink('policy')}>
+                        <TouchableOpacity onPress={this.landLink('privacy')}>
                           <Text style={[Styles.text_muted, styles.land_link]}>{translate('Policy')}</Text>
                         </TouchableOpacity>
                         <Text style={Styles.text_muted}> {translate('and')} </Text>
@@ -298,6 +300,7 @@ class SubscribeScreen extends Component {
             </SafeAreaView>
         }
       </Layout>
+        </>
     );
   }
 }
