@@ -17,11 +17,10 @@ import StarBgIcons from '../Icons/StarBgIcons';
 @inject('userStore')
 @observer
 class CourseHead extends Component {
-
   render() {
-    const {data, index, handleBack, progress, soon} = this.props;
+    const {data, handleBack, progress, soon} = this.props;
     const hasAnyLabel = soon || data?.free;
-    const color = hasAnyLabel ? Colors.secondColor : COLORS[index % (COLORS.length - 1)]
+    const color = hasAnyLabel ? Colors.secondColor : COLORS[(data.order || 0) % (COLORS.length - 1)]
     const percent = getPercent(progress.all, progress?.done);
     return (
       <View style={styles.container}>

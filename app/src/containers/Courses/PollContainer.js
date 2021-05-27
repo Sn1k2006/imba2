@@ -2,14 +2,15 @@ import React, {Component} from 'react';
 import {observer} from 'mobx-react';
 import {observable, action, toJS} from 'mobx';
 import {withNavigation} from 'react-navigation';
-import {finishedLearning} from "../../actions/courses";
-import {toast, translate} from "../../utils";
-import {StyleSheet, View, Text} from "react-native";
-import {Content} from "native-base";
-import CustomBtn from "../../components/elements/CustomBtn";
-import Styles from "../../constants/Styles";
-import CustomInput from "../../components/elements/CustomInput";
-import Colors from "../../constants/Colors";
+import {finishedLearning} from '../../actions/courses';
+import {toast, translate} from '../../utils';
+import {StyleSheet, View, Text} from 'react-native';
+import {Content} from 'native-base';
+import CustomBtn from '../../components/elements/CustomBtn';
+import Styles from '../../constants/Styles';
+import CustomInput from '../../components/elements/CustomInput';
+import Colors from '../../constants/Colors';
+import RadialGradientLayout from '../../components/RadialGradientLayout';
 
 @observer
 class PollContainer extends Component {
@@ -34,7 +35,7 @@ class PollContainer extends Component {
 
   @action handleChange = (i) => (e) => {
     this.results[i].answer = e;
-    if(this.errors.length) this.errors = [];
+    if (this.errors.length) this.errors = [];
   }
 
   componentDidMount() {
@@ -44,9 +45,9 @@ class PollContainer extends Component {
   @action handleSubmit = async () => {
     let errors = [];
     this.results.map((item, i) => {
-      if(!item.answer) return errors.push(i);
+      if (!item.answer) return errors.push(i);
     });
-    if(errors.length) return this.errors = errors;
+    if (errors.length) return this.errors = errors;
     this.btn_loading = true;
     try {
       if (!this.props.data.progress) await finishedLearning(this.props.data.id, {results: toJS(this.results)});
@@ -60,48 +61,52 @@ class PollContainer extends Component {
   render() {
     const {data} = this.props;
     return (
-      <Content contentContainerStyle={{flexGrow: 1}}>
-        {data?.profile?.status === "check"
-          ?
-          <Text style={[Styles.text, styles.text_review]}>{translate('POLL_REVIEW')}</Text>
-          :
-          null
-        }
-        <View style={styles.container}>
-          <View>
-            {data?.json?.body?.map((question, i) => (
-              <View key={i} style={styles.item}>
-                <View style={{flexDirection: 'row'}}>
-                  <Text style={Styles.text_muted_16}>{i + 1}.</Text>
-                  <View style={{flex: 1, paddingLeft: 8}}>
-                    <Text style={[Styles.input, {paddingBottom: 32}]}>{question.text}</Text>
-                    {data?.settings?.results
-                      ?
-                      <Text style={[Styles.item_title, {color: Colors.tintColor}]}>{data.settings.results[i].answer}</Text>
-                      :
-                      <CustomInput
-                        error={this.errors.includes(i)}
-                        value={this.results?.[i]?.answer}
-                        onChange={this.handleChange(i)}
-                        style={{paddingLeft: 0}}
-                        placeholder={translate('Answer')}
-                      />
-                    }
+      <>
+        <RadialGradientLayout />
+        <Content contentContainerStyle={{flexGrow: 1}}>
+          {data?.profile?.status === 'check'
+            ?
+            <Text style={[Styles.text, styles.text_review]}>{translate('POLL_REVIEW')}</Text>
+            :
+            null
+          }
+          <View style={styles.container}>
+            <View>
+              {data?.json?.body?.map((question, i) => (
+                <View key={i} style={styles.item}>
+                  <View style={{flexDirection: 'row'}}>
+                    <Text style={Styles.text_muted_16}>{i + 1}.</Text>
+                    <View style={{flex: 1, paddingLeft: 8}}>
+                      <Text style={[Styles.input, {paddingBottom: 32}]}>{question.text}</Text>
+                      {data?.settings?.results
+                        ?
+                        <Text
+                          style={[Styles.item_title, {color: Colors.tintColor}]}>{data.settings.results[i].answer}</Text>
+                        :
+                        <CustomInput
+                          error={this.errors.includes(i)}
+                          value={this.results?.[i]?.answer}
+                          onChange={this.handleChange(i)}
+                          style={{paddingLeft: 0}}
+                          placeholder={translate('Answer')}
+                        />
+                      }
+                    </View>
+
                   </View>
 
                 </View>
-
-              </View>
-            ))}
+              ))}
+            </View>
+            <CustomBtn
+              wrap_style={styles.btn}
+              disabled={false}
+              title={translate(!this.is_result ? 'Next' : 'Back')}
+              width={247}
+              onPress={this.handleSubmit} loading={this.btn_loading} />
           </View>
-          <CustomBtn
-            wrap_style={styles.btn}
-            disabled={false}
-            title={translate(!this.is_result ? 'Next' : 'Back')}
-            width={247}
-            onPress={this.handleSubmit} loading={this.btn_loading}/>
-        </View>
-      </Content>
+        </Content>
+      </>
     );
   }
 }
