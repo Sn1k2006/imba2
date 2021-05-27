@@ -110,7 +110,6 @@ class CustomModal extends Component {
               </TouchableWithoutFeedback>
             </View>
           </ScrollView>
-
         </Root>
       </NativeModal>
     );

@@ -86,12 +86,12 @@ const styles = StyleSheet.create({
     flex: 0,
     width: '100%',
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   btn_wrap: {
     flex: 0,
     alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
   },
   btn: {
     borderRadius: 0,
@@ -113,7 +113,7 @@ const styles = StyleSheet.create({
     position: 'absolute',
   },
   btn_primary: {
-    borderColor: Colors.secondColor
+    borderColor: Colors.secondColor,
   },
   btn_disable: {
     backgroundColor: Colors.disable_bg,
@@ -125,7 +125,7 @@ const styles = StyleSheet.create({
   },
   right_icon: {
     position: 'absolute',
-    right: 8
+    right: 8,
   }
 });
 
