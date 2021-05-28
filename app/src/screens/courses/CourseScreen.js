@@ -13,6 +13,7 @@ import PollContainer from "../../containers/Courses/PollContainer";
 import TaskContainer from "../../containers/Courses/TaskContainer";
 import MyStatusBar from "../../components/MyStatusbar";
 import Colors from "../../constants/Colors";
+import RadialGradient from "react-native-radial-gradient";
 
 class CourseScreen extends Component {
   constructor(props) {
@@ -201,6 +202,7 @@ class CourseScreen extends Component {
               </>
               : <Spinner/>
             }
+
           </Layout>
         }
       </SafeAreaView>

@@ -57,7 +57,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 8,
     fontSize: 24,
     lineHeight: 28,
-    fontFamily: Fonts.medium
+    fontFamily: Fonts.bold
   },
 });
 

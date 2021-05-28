@@ -264,7 +264,6 @@ class CourseContainer extends Component {
                 </View>
               </View>
             </ScrollView>
-
             <CourseStickyHeader
               disabled_tools={disabled_tools}
               handleBack={handleBack}

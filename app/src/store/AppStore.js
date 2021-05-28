@@ -21,7 +21,6 @@ class AppStore {
   @observable lang = null; // Объект {name: "Russian", native: "Русский", rus: "Русский"}
   @observable ln = null; // Строка 'ru'
   @observable is_auth = false;
-
   @observable subscribed = false;
   @observable products = null;
   @observable hide_products = null;

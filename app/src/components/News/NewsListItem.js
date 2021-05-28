@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, ImageBackground, TouchableWithoutFeedback} from 'react-native';
+import {StyleSheet, TouchableWithoutFeedback} from 'react-native';
 import {View, Text} from 'native-base';
 import Styles from "../../constants/Styles";
 import {addHostToPath} from "../../utils";
@@ -9,7 +9,7 @@ import NewsCoursesList from "./NewsCoursesList";
 import Icons from "../Icons";
 import {translate} from "../../utils";
 import Fonts from "../../constants/Fonts";
-
+import FastImage from "react-native-fast-image";
 
 export const COLORS = ['#FCEB55', '#FC5575', Colors.tintColor, '#FF9533', '#7459FF'];
 
@@ -20,7 +20,14 @@ const NewsListItem = ({data, onPress}) => {
           <View style={styles.image_wrap}>
             {data.image
               ?
-              <ImageBackground style={styles.image} source={{uri: addHostToPath(data.image)}}/>
+                <FastImage
+                    style={{width: '100%', height: '100%'}}
+                    source={{
+                      uri: addHostToPath(data.image),
+                      priority: FastImage.priority.normal,
+                    }}
+                    resizeMode={FastImage.resizeMode.cover}
+                />
               :
               <View style={{alignItems: 'center'}}>{Icons.news_stub()}</View>
             }
@@ -50,7 +57,7 @@ const styles = StyleSheet.create({
     marginHorizontal: 16,
     backgroundColor: Colors.item_bg,
     padding: 24,
-    paddingBottom: 0
+    paddingBottom: 8,
   },
   image_wrap: {
     justifyContent: 'center',

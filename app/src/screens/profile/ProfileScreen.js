@@ -14,6 +14,7 @@ import UserStore from "../../store/UserStore";
 import MyStatusBar from "../../components/MyStatusbar";
 import LinearGradient from "react-native-linear-gradient";
 import {getNotifList, removeNotification} from "../../actions/notifications";
+import RadialGradientLayout from "../../components/RadialGradientLayout";
 
 @observer
 class ProfileScreen extends Component {
@@ -73,7 +74,9 @@ class ProfileScreen extends Component {
           null
       }
       <Container style={{backgroundColor: '#ffffff' }}>
+
         <LinearGradient style={{flex: 1 }} colors={[Colors.second_bg, Colors.bg]}>
+          <RadialGradientLayout />
           <TouchableWithoutFeedback onPress={this.hideKeyboard}>
             <>
               <NavigationEvents onDidFocus={this.didFocus}/>

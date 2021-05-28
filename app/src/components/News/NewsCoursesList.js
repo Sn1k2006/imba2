@@ -84,11 +84,13 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     marginHorizontal: -8,
     flexWrap: 'wrap',
+
   },
   arrow: {
     alignItems: 'center',
     justifyContent: 'center',
     height: 40,
+    top: 8,
   }
 });
 

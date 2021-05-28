@@ -23,8 +23,6 @@ import {getBundleId} from "react-native-device-info";
 import Colors from "../constants/Colors";
 import SubDescription from "../components/Subscribe/SubDescription";
 import {beginLearning, getCourse} from "../actions/courses";
-import RadialGradientLayout from "../components/RadialGradientLayout";
-
 
 @inject('appStore', 'userStore')
 @observer
@@ -222,7 +220,7 @@ class SubscribeScreen extends Component {
     const {hide_products, subscribed} = this.props.appStore;
     return (
         <>
-      <Layout 
+      <Layout
         footer={false} header close content_style={{flexGrow: 1}}
         headerLeftClick={this.handleClose}
         right_icon={true}

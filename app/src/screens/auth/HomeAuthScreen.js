@@ -34,10 +34,11 @@ class HomeAuthScreen extends Component {
     return (
       <View style={[styles.container]}>
         <RadialGradient style={{width: 600, height: 600, position: 'absolute', top: -250, left: -250, opacity: 0.3}}
-                        colors={[Colors.secondColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+                        colors={[Colors.secondColor, Colors.second_bg + '00', Colors.second_bg + '00', Colors.second_bg + '00']}
                         stops={[0.1, 0.4, 0.3, 0.75]}
                         center={[300, 300]}
-                        radius={600} />
+                        pointerEvents={'none'}
+                        radius={740} />
         <SafeAreaView style={{flex: 1}}>
           {/*<StatusBar barStyle="light-content" translucent={false} hidden={false} backgroundColor={'transparent'}/>*/}
           <StatusBar translucent={true} hidden={false} backgroundColor={'transparent'} />
@@ -50,7 +51,7 @@ class HomeAuthScreen extends Component {
                 <LinearGradient
                   style={{flex: 1, position: 'absolute', bottom: 0, left: 0, width: '100%', height: 150,}}
                   locations={[0, 0.9, 1]}
-                  colors={[Colors.bg + '00', Colors.bg, Colors.bg]} />
+                  colors={[Colors.second_bg + '00', Colors.second_bg, Colors.second_bg]} />
               </View>
             </View>
           </View>
@@ -63,11 +64,12 @@ class HomeAuthScreen extends Component {
                        wrap_style={styles.btn_wrap} />
           </View>
           <RadialGradient
-            style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.4}}
-            colors={[Colors.thirdColor, Colors.second_bg, Colors.second_bg + '00', Colors.second_bg + '00']}
+              pointerEvents={'none'}
+            style={{width: 600, height: 600, position: 'absolute', bottom: -250, right: -250, opacity: 0.3}}
+            colors={[Colors.thirdColor, Colors.second_bg + '00', Colors.second_bg + '00', Colors.second_bg + '00']}
             stops={[0.1, 0.4, 0.3, 0.75]}
             center={[300, 300]}
-            radius={600} />
+            radius={740} />
         </SafeAreaView>
       </View>
     );
@@ -79,7 +81,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
     height: '100%',
     flex: 1,
-    backgroundColor: Colors.bg
+    backgroundColor: Colors.second_bg
   },
   bgWrap: {
     overflow: 'hidden',

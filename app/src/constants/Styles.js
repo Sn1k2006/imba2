@@ -52,9 +52,10 @@ const title = {
   color: Colors.text,
   fontSize: 24,
   lineHeight: 28,
-  fontFamily: Fonts.medium
+  fontFamily: Fonts.bold,
 };
 const title_20 = {
+  fontFamily: Fonts.medium,
   color: '#ffffff',
   fontSize: 20,
   lineHeight: 28,
