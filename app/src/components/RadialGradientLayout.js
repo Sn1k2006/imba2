@@ -15,8 +15,8 @@ const RadialGradientLayout = () => {
       <RadialGradient
         pointerEvents={'none'}
         style={{width: 600, height: 600, position: 'absolute', bottom: -270, right: -270, opacity: 0.3}}
-        colors={[Colors.thirdColor, Colors.second_bg + '00', Colors.second_bg + '00', Colors.second_bg + '00']}
-        stops={[0.1, 0.4, 0.3, 0.75]}
+        colors={[Colors.thirdColor, Colors.second_bg + '00', Colors.second_bg + '00']}
+        stops={[0, 0.4, 1]}
         center={[300, 300]}
         radius={740} />
     </>
