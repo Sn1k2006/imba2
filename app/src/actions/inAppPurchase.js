@@ -29,16 +29,12 @@ export const getPurchases = async (items) => {
 
 export const buyPurchase = async (productId, type = 'subscription') => {
   try {
-    console.log(1)
     let result;
     if (type === 'subs') {
-      result = await RNIap.requestSubscription(productId, false)
-      console.log(2)
+      result = await RNIap.requestSubscription(productId, false);
     } else {
-      result = await RNIap.requestPurchase(productId, false)
-      console.log(3)
+      result = await RNIap.requestPurchase(productId, false);
     }
-    console.log(4)
     return result;
   } catch (err) {
     console.warn(err);
