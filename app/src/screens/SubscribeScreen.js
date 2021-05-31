@@ -64,7 +64,7 @@ class SubscribeScreen extends Component {
     try {
       this.loading_bth = true;
       const {params} = this.props.navigation.state;
-      const {products, setSubscribed, subscribed} = this.props.appStore;
+      const {products, setSubscribed} = this.props.appStore;
       const {user} = this.props.userStore;
       const root_course = await getCourse({root: params.root});
       this.root_name = root_course?.name;
@@ -111,7 +111,6 @@ class SubscribeScreen extends Component {
       this.loading = false;
       this.loading_bth = false;
     }
-
   }
 
   @action handleClick = (data) => {
