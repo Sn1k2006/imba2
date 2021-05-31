@@ -121,6 +121,7 @@ class AppStore {
         if(Platform.OS === 'ios') {
           prod.type = 'subs';
           if(prod.productId.includes('product')) {
+
             prod.type = 'inapp'
           }
         }

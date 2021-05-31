@@ -62,7 +62,7 @@ class PollContainer extends Component {
     const {data} = this.props;
     return (
       <>
-        <RadialGradientLayout />
+        {/*<RadialGradientLayout />*/}
         <Content contentContainerStyle={{flexGrow: 1}}>
           {data?.profile?.status === 'check'
             ?

@@ -70,26 +70,38 @@ class SubscribeScreen extends Component {
       this.root_name = root_course?.name;
       let res_products = products;
       const available = await getAvailablePurchases();
+      console.log('available ', available)
       // const available = null;
-      console.log('available ', available);
       if (available?.length) {
         const check_sub = await isSubscribed(available);
         console.log('check_sub ', check_sub)
-        if (check_sub === 'active' && user?.user_products?.includes(params?.root)) {
-          this.props.navigation.replace(params?.type === 'test' ? 'Test' : 'Course', params);
-          setSubscribed(check_sub === 'active');
-          return;
-        } else if (check_sub && subscribed && !user?.user_products?.includes(params?.root) && root_course?.has_poll) {
-          res_products = products.filter(item => item.type === 'inapp');
-        }
-        else if (check_sub) {
-          this.otherAccount = true;
+        if (check_sub === 'active') {
+          if (!root_course?.has_poll || user?.user_products?.includes(params?.root)) {
+            this.props.navigation.replace(params?.type === 'test' ? 'Test' : 'Course', params);
+            return setSubscribed(true);
+          } else {
+            res_products = products.filter(item => item.type === 'inapp');
+            setSubscribed(true);
+          }
+        } else if (check_sub) {
+          if(root_course?.has_poll && !user?.user_products?.includes(params?.root)) {
+            res_products = products.filter(item => item.type === 'inapp');
+          } else {
+            this.otherAccount = true;
+          }
+          setSubscribed(false);
+        } else {
+          const idx = res_products.findIndex(item => item.type === 'subs');
+          if(idx === -1) {
+            res_products = [...products.filter(item => item.type !== 'subs'), ...res_products]
+          }
+          setSubscribed(false);
         }
       }
       if (!root_course?.has_poll || user?.user_products?.includes(params?.root)) {
         res_products = products.filter(item => item.type !== 'inapp');
       }
-      if (subscribed) res_products = products.filter(item => item.type !== 'subs');
+      // if (subscribed) res_products = products.filter(item => item.type !== 'subs');
       if (res_products) {
         this.products = res_products;
         this.active = res_products.find(item => item.productId === 'imba_group_product') || res_products[0];
@@ -247,7 +259,15 @@ class SubscribeScreen extends Component {
               <SafeAreaView style={styles.container}>
                 {!this.products?.length || this.error
                   ?
+                  <>
                   <Text style={[Styles.title_20, {paddingTop: 64}]}>{translate('NO_PRODUCTS')}</Text>
+                    <CustomBtn
+                      title={translate('Refresh')}
+                      loading={this.loading_bth}
+                      width={246}
+                      wrap_style={{marginVertical: 24}}
+                      onPress={() => this.init(true)}/>
+                  </>
                   :
                   <>
                     <Text style={[Styles.title, styles.title]}>
@@ -287,8 +307,8 @@ class SubscribeScreen extends Component {
                         loading={this.loading_bth}
                         width={246}
                         wrap_style={{marginTop: 8, marginBottom: 8}}
-                        onPress={this.handleSubmit} />
-                      <View style={{alignItems: 'center',marginTop: 8}}>
+                        onPress={this.handleSubmit}/>
+                      <View style={{alignItems: 'center', marginTop: 8}}>
                         <TouchableOpacity
                           disabled={this.loading_bth}
                           hitSlop={{top: 15, bottom: 15, left: 15, right: 15}}
