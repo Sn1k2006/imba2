@@ -43,6 +43,7 @@ class AppStore {
     await this.inAppPurchase(true);
   };
 
+
   @action getLangs = async () => {
     try {
       const bundle_id = getBundleId();
@@ -99,7 +100,6 @@ class AppStore {
       toast(e.message);
     }
   };
-
 
   @action setSubscribed = (value) => {
     this.subscribed = Boolean(value);

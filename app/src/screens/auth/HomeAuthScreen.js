@@ -46,7 +46,7 @@ class HomeAuthScreen extends Component {
             <FastImage source={logo} style={styles.logo} />
             <View style={{flex: 1, height: '100%', width: '100%'}}>
               <View style={styles.bgWrap}>
-                <FastImage source={homeMan} style={{width: '170%', height: '170%', position: 'absolute'}}
+                <FastImage source={homeMan} style={{width: '190%', height: '120%', position: 'absolute'}}
                            resizeMode={FastImage.resizeMode.contain} />
                 <LinearGradient
                   style={{flex: 1, position: 'absolute', bottom: 0, left: 0, width: '100%', height: 150,}}
@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     maxHeight: 600,
     alignItems: 'center',
     top: 0,
-    justifyContent: 'center',
+    justifyContent: 'flex-start',
   },
   logo: {
     width: 205,

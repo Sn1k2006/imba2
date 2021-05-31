@@ -41,18 +41,9 @@ class SubscribeScreen extends Component {
   @observable active = null;
 
   @action init = async (refresh, load_count = 0) => {
-    const {products, inAppPurchase, setSubscribed, subscribed} = this.props.appStore;
-    const {user} = this.props.userStore;
+    const {products, inAppPurchase} = this.props.appStore;
     const {params} = this.props.navigation.state;
-
-    await beginLearning(params.id);
-    let root_course;
-    try {
-      root_course = await getCourse({root: params.root});
-      this.root_name = root_course?.name;
-    } catch (e) {
-
-    }
+    await beginLearning(params?.id);
     if (refresh) this.loading_bth = true;
     if (!products?.length) {
       await inAppPurchase(!this.timeout);
@@ -65,36 +56,54 @@ class SubscribeScreen extends Component {
         } else this.init(null, count);
       }, 2000);
     } else {
+      await this.restore();
+    }
+  };
+
+  @action restore = async () => {
+    try {
+      this.loading_bth = true;
+      const {params} = this.props.navigation.state;
+      const {products, setSubscribed, subscribed} = this.props.appStore;
+      const {user} = this.props.userStore;
+      const root_course = await getCourse({root: params.root});
+      this.root_name = root_course?.name;
       let res_products = products;
-      let available = [];
-      try {
-        available = await getAvailablePurchases();
-      } catch (e) {
-      }
+      const available = await getAvailablePurchases();
+      // const available = null;
+      console.log('available ', available);
       if (available?.length) {
         const check_sub = await isSubscribed(available);
+        console.log('check_sub ', check_sub)
         if (check_sub === 'active' && user?.user_products?.includes(params?.root)) {
           this.props.navigation.replace(params?.type === 'test' ? 'Test' : 'Course', params);
-          setSubscribed(true);
+          setSubscribed(check_sub === 'active');
           return;
-        } else if (check_sub && !user?.user_products?.includes(params?.root)) res_products = products.filter(item => item.type === 'inapp');
-        else if (check_sub) this.otherAccount = true;
+        } else if (check_sub && subscribed && !user?.user_products?.includes(params?.root) && root_course?.has_poll) {
+          res_products = products.filter(item => item.type === 'inapp');
+        }
+        else if (check_sub) {
+          this.otherAccount = true;
+        }
       }
-      if (subscribed) res_products = products.filter(item => item.type !== 'subs');
       if (!root_course?.has_poll || user?.user_products?.includes(params?.root)) {
         res_products = products.filter(item => item.type !== 'inapp');
       }
+      if (subscribed) res_products = products.filter(item => item.type !== 'subs');
       if (res_products) {
         this.products = res_products;
         this.active = res_products.find(item => item.productId === 'imba_group_product') || res_products[0];
       }
+    } catch (e) {
+    } finally {
       this.loading = false;
       this.loading_bth = false;
     }
-  };
+
+  }
 
   @action handleClick = (data) => {
-    if(!this.loading_bth) this.active = data;
+    if (!this.loading_bth) this.active = data;
   };
   @action showHideSub = () => {
     this.show_hide = this.show_hide + 1;
@@ -198,6 +207,7 @@ class SubscribeScreen extends Component {
     });
   };
 
+
   renderOtherAccount = () => {
     const {app_info} = this.props.appStore;
     return <SafeAreaView style={styles.container}>
@@ -219,86 +229,97 @@ class SubscribeScreen extends Component {
   render() {
     const {hide_products, subscribed} = this.props.appStore;
     return (
-        <>
-      <Layout
-        footer={false} header close content_style={{flexGrow: 1}}
-        headerLeftClick={this.handleClose}
-        right_icon={true}
-        headerRightClick={this.showHideSub}
-      >
-        {this.loading
-          ?
-          <Spinner/>
-          :
-          this.otherAccount
+      <>
+        <Layout
+          footer={false} header close content_style={{flexGrow: 1}}
+          headerLeftClick={this.handleClose}
+          right_icon={true}
+          headerRightClick={this.showHideSub}
+        >
+          {this.loading
             ?
-            this.renderOtherAccount()
+            <Spinner/>
             :
-            <SafeAreaView style={styles.container}>
-              {!this.products?.length || this.error
-                ?
-                <Text style={[Styles.title_20, {paddingTop: 64}]}>{translate('NO_PRODUCTS')}</Text>
-                :
-                <>
-                  <Text style={[Styles.title, styles.title]}>
-                    {translate(subscribed ? 'SUBSCRIBE_TITLE_2' : 'SUBSCRIBE_TITLE_1')}
-                  </Text>
-                  <View style={{flex: 1, justifyContent: 'center'}}>
-                    <View style={styles.items}>
-                      {this.products.map(product => (
-                        <SubscribeItem
-                          root_name={toJS(this.root_name)}
-                          onClick={this.handleClick}
-                          data={product}
-                          key={product.productId}
-                          active={this.active?.productId === product.productId}
-                        />
-                      ))}
-                      {(hide_products?.length && this.show_hide >= 10)
-                        ?
-                        hide_products.map(product => (
+            this.otherAccount
+              ?
+              this.renderOtherAccount()
+              :
+              <SafeAreaView style={styles.container}>
+                {!this.products?.length || this.error
+                  ?
+                  <Text style={[Styles.title_20, {paddingTop: 64}]}>{translate('NO_PRODUCTS')}</Text>
+                  :
+                  <>
+                    <Text style={[Styles.title, styles.title]}>
+                      {translate(subscribed ? 'SUBSCRIBE_TITLE_2' : 'SUBSCRIBE_TITLE_1')}
+                    </Text>
+                    <View style={{flex: 1, justifyContent: 'center'}}>
+                      <View style={styles.items}>
+                        {this.products.map(product => (
                           <SubscribeItem
+                            root_name={toJS(this.root_name)}
                             onClick={this.handleClick}
                             data={product}
                             key={product.productId}
                             active={this.active?.productId === product.productId}
                           />
-                        ))
+                        ))}
+                        {(hide_products?.length && this.show_hide >= 10)
+                          ?
+                          hide_products.map(product => (
+                            <SubscribeItem
+                              onClick={this.handleClick}
+                              data={product}
+                              key={product.productId}
+                              active={this.active?.productId === product.productId}
+                            />
+                          ))
+                          :
+                          null
+                        }
+                      </View>
+                      <SubDescription data={this.active}/>
+                    </View>
+                    <View>
+                      <CustomBtn
+                        disabled={this.loading || !this.active}
+                        title={translate('Continue')}
+                        loading={this.loading_bth}
+                        width={246}
+                        wrap_style={{marginTop: 8, marginBottom: 8}}
+                        onPress={this.handleSubmit} />
+                      <View style={{alignItems: 'center',marginTop: 8}}>
+                        <TouchableOpacity
+                          disabled={this.loading_bth}
+                          hitSlop={{top: 15, bottom: 15, left: 15, right: 15}}
+                          onPress={this.restore}>
+                          <View style={{borderBottomWidth: 1, borderBottomColor: Colors.secondColor}}>
+                            <Text style={[Styles.text_muted, {color: Colors.secondColor}]}>Восстановить покупки</Text>
+                          </View>
+                        </TouchableOpacity>
+                      </View>
+                      {Platform.OS === 'ios'
+                        ?
+                        <View
+                          style={{flexDirection: 'row', justifyContent: 'center', paddingTop: 16, flexWrap: 'wrap'}}>
+                          <TouchableOpacity onPress={this.landLink('privacy')}>
+                            <Text style={[Styles.text_muted, styles.land_link]}>{translate('Policy')}</Text>
+                          </TouchableOpacity>
+                          <Text style={Styles.text_muted}> {translate('and')} </Text>
+                          <TouchableOpacity onPress={this.landLink('terms')}>
+                            <Text style={[Styles.text_muted, styles.land_link]}>{translate('Terms')}</Text>
+                          </TouchableOpacity>
+                        </View>
                         :
                         null
                       }
                     </View>
-                    <SubDescription data={this.active}/>
-                  </View>
-                  <View>
-                    <CustomBtn
-                      disabled={this.loading || !this.active}
-                      title={translate('Continue')}
-                      loading={this.loading_bth}
-                      width={246}
-                      wrap_style={{marginTop: 8, marginBottom: 8}}
-                      onPress={this.handleSubmit}/>
-                    {Platform.OS === 'ios'
-                      ?
-                      <View style={{flexDirection: 'row', justifyContent: 'center', paddingTop: 16, flexWrap: 'wrap'}}>
-                        <TouchableOpacity onPress={this.landLink('privacy')}>
-                          <Text style={[Styles.text_muted, styles.land_link]}>{translate('Policy')}</Text>
-                        </TouchableOpacity>
-                        <Text style={Styles.text_muted}> {translate('and')} </Text>
-                        <TouchableOpacity onPress={this.landLink('terms')}>
-                          <Text style={[Styles.text_muted, styles.land_link]}>{translate('Terms')}</Text>
-                        </TouchableOpacity>
-                      </View>
-                      :
-                      null
-                    }
-                  </View>
-                </>
-              }
-            </SafeAreaView>
-        }
-      </Layout>
-        </>
+                  </>
+                }
+              </SafeAreaView>
+          }
+        </Layout>
+      </>
     );
   }
 }

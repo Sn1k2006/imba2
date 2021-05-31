@@ -39,7 +39,7 @@ class CardsSwiper extends Component {
             </View>
             :
             <Carousel
-              onSnapToItem={changeIndex}
+              onBeforeSnapToItem={changeIndex}
               // layout={'default'}
               onScrollToIndexFailed={() => null}
               inactiveSlideOpacity={1}
