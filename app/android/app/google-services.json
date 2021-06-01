@@ -7,12 +7,20 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:155437666676:android:c07b4d71628a41d37f5c21",
+        "mobilesdk_app_id": "1:155437666676:android:7cc8e821f81234947f5c21",
         "android_client_info": {
-          "package_name": "rr.esports.masters"
+          "package_name": "com.es2021.masters"
         }
       },
       "oauth_client": [
+        {
+          "client_id": "155437666676-he6o3mhn9llk3993o4e47svj74s2qg4n.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.es2021.masters",
+            "certificate_hash": "69673d685d732c99540e4c2130b33995cc005ba9"
+          }
+        },
         {
           "client_id": "155437666676-839rq963v86oc60p21ctm8nk1kngo5g5.apps.googleusercontent.com",
           "client_type": 3
@@ -29,6 +37,14 @@
             {
               "client_id": "155437666676-839rq963v86oc60p21ctm8nk1kngo5g5.apps.googleusercontent.com",
               "client_type": 3
+            },
+            {
+              "client_id": "155437666676-thmb253eocme5evtt8rorurfvk2rpa4a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "rr.esports.masters",
+                "app_store_id": "1568664718"
+              }
             }
           ]
         }

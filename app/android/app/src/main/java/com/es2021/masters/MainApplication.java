@@ -1,4 +1,4 @@
-package rr.esports.masters;
+package com.es2021.masters;
 
 import android.app.Application;
 import android.content.Context;

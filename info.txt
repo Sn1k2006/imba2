@@ -1,13 +1,26 @@
+IOS {
 ESports Masters
+
+bundle_id: rr.esports.masters
 
 https://esports-masters.flycricket.io/privacy.html
 https://esports-masters.flycricket.io/terms.html
 
-keytool -list -v -alias alias_name -keystore ./my-release-key.keystore
-
 Gmail:
 martukovn8@gmail.com
 u$MFUD}Gwh*lmVe@O
+}
+
+GOOGLE {
+ESports Masters 2021
+
+bundle_id: com.es2021.masters
+}
+
+
+keytool -list -v -alias alias_name -keystore ./my-release-key.keystore
+keytool -genkey -v -keystore my-release-key.keystore -alias alias_name -keyalg RSA -sigalg SHA1withRSA -keysize 2048 -validity 10000
+
 
 
 Facebook

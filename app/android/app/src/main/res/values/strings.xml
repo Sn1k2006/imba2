@@ -1,7 +1,7 @@
 <resources>
     <color name="gray">#021734</color>
     <color name="purple">#021734</color>
-    <string name="app_name">ESports Masters</string>
+    <string name="app_name">ESports Masters 2021</string>
     <string name="facebook_app_id">287544712382319</string>
     <string name="fb_login_protocol_scheme">fb287544712382319</string>
 </resources>

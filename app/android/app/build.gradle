@@ -131,7 +131,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "rr.esports.masters"
+        applicationId "com.es2021.masters"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 2
