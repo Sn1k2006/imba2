@@ -13,7 +13,6 @@ u$MFUD}Gwh*lmVe@O
 
 GOOGLE {
 ESports Masters 2021
-
 bundle_id: com.es2021.masters
 }
 
