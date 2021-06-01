@@ -14,6 +14,11 @@ u$MFUD}Gwh*lmVe@O
 GOOGLE {
 ESports Masters 2021
 bundle_id: com.es2021.masters
+
+gmail:  kulkarnimanisha603@gmail.com
+
+https://esports-masters-2021.flycricket.io/privacy.html
+https://esports-masters-2021.flycricket.io/terms.html
 }
 
 

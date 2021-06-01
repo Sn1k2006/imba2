@@ -52,7 +52,7 @@ const AuthContainer = inject("userStore", 'appStore')(observer(({navigation, use
     navigation.navigate('Recovery')
   };
   const landLink = (type) => () => {
-    const url = `https://esports-masters.flycricket.io/${type}.html`;
+    const url = `https://esports-masters${Platform.OS === 'android' ? '-2021' : ''}.flycricket.io/${type}.html`;
     Linking.canOpenURL(url).then(supported => {
       if (supported) {
         Linking.openURL(url);
