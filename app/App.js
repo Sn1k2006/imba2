@@ -60,7 +60,6 @@ class App extends Component {
 
   async componentDidMount() {
     AppState.addEventListener('change', this._handleAppStateChange);
-
     Orientation.lockToPortrait();
     Dimensions.addEventListener("change", Layout._orientationDidChange);
     this.connection = NetInfo.addEventListener(async state => {

@@ -17,7 +17,6 @@ export const HOST = endpoint.replace('/api/v1', '/');
 
 export function api(method, args = {}, type = 'POST', silent = false, URL = null) {
   return new Promise((resolve, reject) => {
-
     function processReject(error) {
       if (error?.code === 401) {
         // toast(error.message);
@@ -27,12 +26,12 @@ export function api(method, args = {}, type = 'POST', silent = false, URL = null
       else resolve(false);
       throw error;
     }
-
     AsyncStorage.multiGet(["token", 'ln']).then((keys) => {
       let token = keys[0][1];
-      let lang = keys[1][1] || getDeviceLocale();
+      let lang = 'ru' || keys[1][1] || getDeviceLocale();
+      const bundle_id = getBundleId();
       let params = '';
-
+      const constParams = `?token=${token}&lang=${lang}&bundle_id=${bundle_id}`
       if (type === 'GET') {
         Object.keys(args).map(key => {
           if (Array.isArray(args[key])) {
@@ -40,9 +39,9 @@ export function api(method, args = {}, type = 'POST', silent = false, URL = null
           }
           params += `&${key}=${args[key]}`
         });
-        method += `?token=${token}&lang=${lang}${params}`;
+        method += `${constParams}${params}`;
       } else {
-        method += `?token=${token}&lang=${lang}`
+        method += constParams;
       }
       fetch(URL || (endpoint + method), {
         method: type,
